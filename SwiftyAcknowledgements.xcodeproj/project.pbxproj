@@ -7,19 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5275A9AA1B9F6F99007AD576 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */; settings = {ASSET_TAGS = (); }; };
+		5275A9AD1B9F6FAF007AD576 /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
 		52FC377B1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52FC37861B9F6A94005EFE87 /* Acknowledgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */; settings = {ASSET_TAGS = (); }; };
 		52FC37871B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		52FC37881B9F6A94005EFE87 /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		52FC37901B9F6BEF005EFE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC378F1B9F6BEF005EFE87 /* AppDelegate.swift */; };
+		52FC37921B9F6BEF005EFE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37911B9F6BEF005EFE87 /* ViewController.swift */; };
+		52FC37951B9F6BEF005EFE87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC37931B9F6BEF005EFE87 /* Main.storyboard */; };
+		52FC37971B9F6BEF005EFE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FC37961B9F6BEF005EFE87 /* Assets.xcassets */; };
+		52FC379A1B9F6BEF005EFE87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC37981B9F6BEF005EFE87 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5275A9AB1B9F6FA9007AD576 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52FC376E1B9F6A0A005EFE87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52FC37761B9F6A0A005EFE87;
+			remoteInfo = SwiftyAcknowledgements;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
 		52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAcknowledgements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyAcknowledgements.h; sourceTree = "<group>"; };
 		52FC377C1B9F6A0A005EFE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acknowledgement.swift; sourceTree = "<group>"; };
 		52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsTableViewController.swift; sourceTree = "<group>"; };
 		52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		52FC378D1B9F6BEF005EFE87 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FC378F1B9F6BEF005EFE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52FC37911B9F6BEF005EFE87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52FC37941B9F6BEF005EFE87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52FC37961B9F6BEF005EFE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52FC37991B9F6BEF005EFE87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52FC379B1B9F6BEF005EFE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +55,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52FC378A1B9F6BEF005EFE87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5275A9AD1B9F6FAF007AD576 /* SwiftyAcknowledgements.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -37,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				52FC37791B9F6A0A005EFE87 /* SwiftyAcknowledgements */,
+				52FC378E1B9F6BEF005EFE87 /* iOS Example */,
 				52FC37781B9F6A0A005EFE87 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */,
+				52FC378D1B9F6BEF005EFE87 /* iOS Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +94,20 @@
 				52FC377C1B9F6A0A005EFE87 /* Info.plist */,
 			);
 			path = SwiftyAcknowledgements;
+			sourceTree = "<group>";
+		};
+		52FC378E1B9F6BEF005EFE87 /* iOS Example */ = {
+			isa = PBXGroup;
+			children = (
+				52FC378F1B9F6BEF005EFE87 /* AppDelegate.swift */,
+				52FC37911B9F6BEF005EFE87 /* ViewController.swift */,
+				52FC37931B9F6BEF005EFE87 /* Main.storyboard */,
+				52FC37961B9F6BEF005EFE87 /* Assets.xcassets */,
+				52FC37981B9F6BEF005EFE87 /* LaunchScreen.storyboard */,
+				52FC379B1B9F6BEF005EFE87 /* Info.plist */,
+				5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */,
+			);
+			path = "iOS Example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +142,25 @@
 			productReference = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		52FC378C1B9F6BEF005EFE87 /* iOS Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52FC379C1B9F6BEF005EFE87 /* Build configuration list for PBXNativeTarget "iOS Example" */;
+			buildPhases = (
+				52FC37891B9F6BEF005EFE87 /* Sources */,
+				52FC378A1B9F6BEF005EFE87 /* Frameworks */,
+				5275A9A81B9F6D18007AD576 /* Generate Acknowledgements */,
+				52FC378B1B9F6BEF005EFE87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5275A9AC1B9F6FA9007AD576 /* PBXTargetDependency */,
+			);
+			name = "iOS Example";
+			productName = "iOS Example";
+			productReference = 52FC378D1B9F6BEF005EFE87 /* iOS Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -106,6 +174,9 @@
 					52FC37761B9F6A0A005EFE87 = {
 						CreatedOnToolsVersion = 7.0;
 					};
+					52FC378C1B9F6BEF005EFE87 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = 52FC37711B9F6A0A005EFE87 /* Build configuration list for PBXProject "SwiftyAcknowledgements" */;
@@ -114,6 +185,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 52FC376D1B9F6A0A005EFE87;
 			productRefGroup = 52FC37781B9F6A0A005EFE87 /* Products */;
@@ -121,6 +193,7 @@
 			projectRoot = "";
 			targets = (
 				52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements */,
+				52FC378C1B9F6BEF005EFE87 /* iOS Example */,
 			);
 		};
 /* End PBXProject section */
@@ -133,7 +206,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52FC378B1B9F6BEF005EFE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52FC379A1B9F6BEF005EFE87 /* LaunchScreen.storyboard in Resources */,
+				52FC37971B9F6BEF005EFE87 /* Assets.xcassets in Resources */,
+				52FC37951B9F6BEF005EFE87 /* Main.storyboard in Resources */,
+				5275A9AA1B9F6F99007AD576 /* Acknowledgements.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5275A9A81B9F6D18007AD576 /* Generate Acknowledgements */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Acknowledgements";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Scripts/GenerateLicenseFile.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/iOS\\ Example/Acknowledgements.plist";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52FC37721B9F6A0A005EFE87 /* Sources */ = {
@@ -146,7 +247,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52FC37891B9F6BEF005EFE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52FC37921B9F6BEF005EFE87 /* ViewController.swift in Sources */,
+				52FC37901B9F6BEF005EFE87 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5275A9AC1B9F6FA9007AD576 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements */;
+			targetProxy = 5275A9AB1B9F6FA9007AD576 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52FC37931B9F6BEF005EFE87 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52FC37941B9F6BEF005EFE87 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52FC37981B9F6BEF005EFE87 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52FC37991B9F6BEF005EFE87 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		52FC377D1B9F6A0A005EFE87 /* Debug */ = {
@@ -270,6 +407,30 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.mathiasnagler.SwiftyAcknowledgements;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		52FC379D1B9F6BEF005EFE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "iOS Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.iOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52FC379E1B9F6BEF005EFE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "iOS Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.iOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -290,6 +451,15 @@
 			buildConfigurations = (
 				52FC37801B9F6A0A005EFE87 /* Debug */,
 				52FC37811B9F6A0A005EFE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52FC379C1B9F6BEF005EFE87 /* Build configuration list for PBXNativeTarget "iOS Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52FC379D1B9F6BEF005EFE87 /* Debug */,
+				52FC379E1B9F6BEF005EFE87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
