@@ -12,7 +12,10 @@ public class AcknowledgementViewController: UIViewController {
     
     // MARK: Properties
     
+    /// The Acknowledgement instance that is displayed by the ViewController.
     public let acknowledgement: Acknowledgement
+    
+    /// The ViewController's view
     public private(set) var textView: UITextView!
     
     // MARK: Initialization
@@ -41,6 +44,11 @@ public class AcknowledgementViewController: UIViewController {
         self.textView   = textView
     }
     
+    public override func viewDidLoad() {
+        title = acknowledgement.title
+        textView.contentOffset = CGPointZero
 
+        super.viewDidLoad()
+    }
     
 }

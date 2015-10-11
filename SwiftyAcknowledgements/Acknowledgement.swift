@@ -17,6 +17,7 @@ public struct Acknowledgement {
     
     // MARK: Initialization
     
+    /// Initializes a new Acknowledgement instance with the given title and text
     public init(title: String, text: String) {
         self.title = title
         self.text = text
@@ -24,6 +25,13 @@ public struct Acknowledgement {
     
     // MARK: Loading Acknowledgement from Plist
     
+    /**
+    Loads a plist at a given path and initializes an Acknowledgement instance for every
+    element of the plist. The plist's top level element has to be an array and every
+    element in the array should be a dictionary with the two keys **title** and **text**.
+    If the plist is not in the correct format an empty array will be returned.
+    - Returns: An array of Acknowledgements.
+    */
     public static func acknowledgementsFromPlistAtPath(path: String) -> [Acknowledgement] {
         var acknowledgements = [Acknowledgement]()
         

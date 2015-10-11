@@ -70,7 +70,7 @@ libraries.forEach({ (library: String) in
             return
     }
 
-    licenses.append(["Name" : library, "License" : licence])
+    licenses.append(["title" : library, "text" : licence])
 })
 
 // Generate plist from result array
