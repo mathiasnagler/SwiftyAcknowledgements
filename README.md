@@ -1,4 +1,5 @@
 # SwiftyAcknowledgements
+[![Build Status](https://travis-ci.org/mathiasnagler/SwiftyAcknowledgements.svg?branch=develop)](https://travis-ci.org/mathiasnagler/SwiftyAcknowledgements)
 
 SwiftyAcknowledgements makes it easy to integrate acknowledgements for third party libraries into your iOS Apps.
 
