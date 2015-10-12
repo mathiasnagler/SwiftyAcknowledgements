@@ -1,0 +1,5 @@
+language: objective-c
+xcode_project: SwiftyAcknowledgements.xcodeproj
+xcode_scheme: SwiftyAcknowledgements
+xcode_sdk: iphonesimulator
+osx_image: xcode7
