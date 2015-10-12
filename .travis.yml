@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: SwiftyAcknowledgements.xcodeproj
+xcode_scheme: SwiftyAcknowledgements
+osx_image: xcode7
