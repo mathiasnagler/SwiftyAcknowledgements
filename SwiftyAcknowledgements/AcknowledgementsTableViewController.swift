@@ -31,7 +31,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     /// The name of the plist containing the acknowledgements, defaults to **Acknowledgements**.
     @IBInspectable public var acknowledgementsPlistName = "Acknowledgements"
     
-    private lazy var acknowledgements: [Acknowledgement] = {
+    private lazy var _acknowledgements: [Acknowledgement] = {
         guard let
             acknowledgementsPlistPath = NSBundle.mainBundle().pathForResource(
                 self.acknowledgementsPlistName, ofType: "plist")
@@ -41,6 +41,22 @@ public class AcknowledgementsTableViewController: UITableViewController {
 
         return Acknowledgement.acknowledgementsFromPlistAtPath(acknowledgementsPlistPath)
     }()
+    
+    public var acknowledgements: [Acknowledgement] {
+        set {
+            _acknowledgements = sortingClosure != nil ? newValue.sort(sortingClosure!) : newValue
+            tableView.reloadData()
+        }
+        get {
+            return _acknowledgements
+        }
+    }
+    
+    public typealias SortingClosure = ((Acknowledgement, Acknowledgement) -> Bool)
+    public var sortingClosure: SortingClosure? = { (left, right) in
+        var comparsion = left.title.compare(right.title)
+        return comparsion == .OrderedAscending
+    }
     
     // MARK: Initialization
     
