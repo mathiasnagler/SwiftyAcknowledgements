@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="H8J-QG-q4j">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tvOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKA-W2-d4R">
+                                <rect key="frame" x="735" y="438" width="451" height="204"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeR-KC-GPO">
+                                        <rect key="frame" x="0.0" y="0.0" width="451" height="86"/>
+                                        <animations/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Show programatically"/>
+                                        <connections>
+                                            <action selector="showAcknowledgements" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="3Ho-oa-Wbl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w30-bk-cP8">
+                                        <rect key="frame" x="0.0" y="118" width="451" height="86"/>
+                                        <animations/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Show using segue"/>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="w30-bk-cP8" firstAttribute="leading" secondItem="XKA-W2-d4R" secondAttribute="leading" id="7Dn-eT-AQE"/>
+                                    <constraint firstAttribute="trailing" secondItem="TeR-KC-GPO" secondAttribute="trailing" id="A7a-S1-VEc"/>
+                                    <constraint firstItem="TeR-KC-GPO" firstAttribute="leading" secondItem="XKA-W2-d4R" secondAttribute="leading" id="J2l-3D-lxK"/>
+                                    <constraint firstItem="w30-bk-cP8" firstAttribute="top" secondItem="TeR-KC-GPO" secondAttribute="bottom" constant="32" id="OhG-XW-DZ7"/>
+                                    <constraint firstItem="TeR-KC-GPO" firstAttribute="top" secondItem="XKA-W2-d4R" secondAttribute="top" id="UUY-vj-hDv"/>
+                                    <constraint firstAttribute="bottom" secondItem="w30-bk-cP8" secondAttribute="bottom" id="abB-R5-nCW"/>
+                                    <constraint firstAttribute="trailing" secondItem="w30-bk-cP8" secondAttribute="trailing" id="gbV-Ct-JGv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XKA-W2-d4R" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RDE-W8-Ldt"/>
+                            <constraint firstItem="XKA-W2-d4R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r1M-Ug-4Ci"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="exZ-RU-4JJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="643" y="-2555"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dyl-bW-rW9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H8J-QG-q4j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aI2-Hz-QMU">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="O7Y-hc-Q42"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hL-Bx-tdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1573" y="-2555"/>
+        </scene>
+    </scenes>
+</document>
