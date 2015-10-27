@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5275A9AA1B9F6F99007AD576 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */; settings = {ASSET_TAGS = (); }; };
-		5275A9AD1B9F6FAF007AD576 /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
+		5275A9AA1B9F6F99007AD576 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */; };
+		52E10E141BDE37C200C6176A /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
+		52E10E151BDE37C200C6176A /* SwiftyAcknowledgements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52FC377B1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52FC37861B9F6A94005EFE87 /* Acknowledgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */; settings = {ASSET_TAGS = (); }; };
-		52FC37871B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		52FC37881B9F6A94005EFE87 /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		52FC37861B9F6A94005EFE87 /* Acknowledgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */; };
+		52FC37871B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */; };
+		52FC37881B9F6A94005EFE87 /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */; };
 		52FC37901B9F6BEF005EFE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC378F1B9F6BEF005EFE87 /* AppDelegate.swift */; };
 		52FC37921B9F6BEF005EFE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37911B9F6BEF005EFE87 /* ViewController.swift */; };
 		52FC37951B9F6BEF005EFE87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC37931B9F6BEF005EFE87 /* Main.storyboard */; };
@@ -29,6 +30,20 @@
 			remoteInfo = SwiftyAcknowledgements;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52E10E161BDE37C200C6176A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				52E10E151BDE37C200C6176A /* SwiftyAcknowledgements.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
@@ -59,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5275A9AD1B9F6FAF007AD576 /* SwiftyAcknowledgements.framework in Frameworks */,
+				52E10E141BDE37C200C6176A /* SwiftyAcknowledgements.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +165,7 @@
 				52FC378A1B9F6BEF005EFE87 /* Frameworks */,
 				5275A9A81B9F6D18007AD576 /* Generate Acknowledgements */,
 				52FC378B1B9F6BEF005EFE87 /* Resources */,
+				52E10E161BDE37C200C6176A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -417,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -429,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
