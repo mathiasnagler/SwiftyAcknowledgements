@@ -139,9 +139,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements */ = {
+		52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52FC377F1B9F6A0A005EFE87 /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements" */;
+			buildConfigurationList = 52FC377F1B9F6A0A005EFE87 /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements iOS" */;
 			buildPhases = (
 				52FC37721B9F6A0A005EFE87 /* Sources */,
 				52FC37731B9F6A0A005EFE87 /* Frameworks */,
@@ -152,7 +152,7 @@
 			);
 			dependencies = (
 			);
-			name = SwiftyAcknowledgements;
+			name = "SwiftyAcknowledgements iOS";
 			productName = SwiftyAcknowledgements;
 			productReference = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */;
 			productType = "com.apple.product-type.framework";
@@ -208,7 +208,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements */,
+				52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements iOS */,
 				52FC378C1B9F6BEF005EFE87 /* iOS Example */,
 			);
 		};
@@ -277,7 +277,7 @@
 /* Begin PBXTargetDependency section */
 		5275A9AC1B9F6FA9007AD576 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements */;
+			target = 52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements iOS */;
 			targetProxy = 5275A9AB1B9F6FA9007AD576 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -404,7 +404,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mathiasnagler.SwiftyAcknowledgements;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftyAcknowledgements;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -423,7 +423,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mathiasnagler.SwiftyAcknowledgements;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftyAcknowledgements;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
@@ -468,7 +468,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52FC377F1B9F6A0A005EFE87 /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements" */ = {
+		52FC377F1B9F6A0A005EFE87 /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52FC37801B9F6A0A005EFE87 /* Debug */,

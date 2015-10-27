@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52FC37761B9F6A0A005EFE87"
-               BuildableName = "SwiftyAcknowledgements.framework"
-               BlueprintName = "SwiftyAcknowledgements"
+               BuildableName = "SwiftyAcknowledgements iOS.framework"
+               BlueprintName = "SwiftyAcknowledgements iOS"
                ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52FC37761B9F6A0A005EFE87"
-            BuildableName = "SwiftyAcknowledgements.framework"
-            BlueprintName = "SwiftyAcknowledgements"
+            BuildableName = "SwiftyAcknowledgements iOS.framework"
+            BlueprintName = "SwiftyAcknowledgements iOS"
             ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52FC37761B9F6A0A005EFE87"
-            BuildableName = "SwiftyAcknowledgements.framework"
-            BlueprintName = "SwiftyAcknowledgements"
+            BuildableName = "SwiftyAcknowledgements iOS.framework"
+            BlueprintName = "SwiftyAcknowledgements iOS"
             ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
