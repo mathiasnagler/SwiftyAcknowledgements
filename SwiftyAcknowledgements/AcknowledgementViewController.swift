@@ -36,9 +36,12 @@ public class AcknowledgementViewController: UIViewController {
         textView.alwaysBounceVertical   = true
         textView.font                   = UIFont.systemFontOfSize(17)
         textView.text                   = acknowledgement.text
-        textView.editable               = false
-        textView.dataDetectorTypes      = .Link
         textView.textContainerInset     = UIEdgeInsetsMake(12, 10, 12, 10)
+        
+        #if os(iOS)
+            textView.editable           = false
+            textView.dataDetectorTypes  = .Link
+        #endif
         
         self.view       = textView
         self.textView   = textView

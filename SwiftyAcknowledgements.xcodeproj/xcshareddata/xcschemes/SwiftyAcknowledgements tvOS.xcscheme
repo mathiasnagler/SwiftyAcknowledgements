@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52FC37761B9F6A0A005EFE87"
+               BlueprintIdentifier = "52AAE6221BDF87B9007EB44A"
                BuildableName = "SwiftyAcknowledgements.framework"
-               BlueprintName = "SwiftyAcknowledgements iOS"
+               BlueprintName = "SwiftyAcknowledgements tvOS"
                ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52FC37761B9F6A0A005EFE87"
+            BlueprintIdentifier = "52AAE6221BDF87B9007EB44A"
             BuildableName = "SwiftyAcknowledgements.framework"
-            BlueprintName = "SwiftyAcknowledgements iOS"
+            BlueprintName = "SwiftyAcknowledgements tvOS"
             ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52FC37761B9F6A0A005EFE87"
+            BlueprintIdentifier = "52AAE6221BDF87B9007EB44A"
             BuildableName = "SwiftyAcknowledgements.framework"
-            BlueprintName = "SwiftyAcknowledgements iOS"
+            BlueprintName = "SwiftyAcknowledgements tvOS"
             ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

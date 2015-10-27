@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5275A9AA1B9F6F99007AD576 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */; };
+		52AAE62B1BDF87F5007EB44A /* Acknowledgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */; };
+		52AAE62C1BDF87F5007EB44A /* AcknowledgementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */; };
+		52AAE62D1BDF87F5007EB44A /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */; };
+		52AAE62E1BDF87F5007EB44A /* SwiftyAcknowledgements.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52E10E141BDE37C200C6176A /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
 		52E10E151BDE37C200C6176A /* SwiftyAcknowledgements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52FC377B1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
+		52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAcknowledgements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAcknowledgements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyAcknowledgements.h; sourceTree = "<group>"; };
 		52FC377C1B9F6A0A005EFE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +68,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		52AAE61F1BDF87B9007EB44A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52FC37731B9F6A0A005EFE87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,6 +107,7 @@
 			children = (
 				52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */,
 				52FC378D1B9F6BEF005EFE87 /* iOS Example.app */,
+				52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +141,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		52AAE6201BDF87B9007EB44A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52AAE62E1BDF87F5007EB44A /* SwiftyAcknowledgements.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52FC37741B9F6A0A005EFE87 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +160,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		52AAE6221BDF87B9007EB44A /* SwiftyAcknowledgements tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52AAE6281BDF87B9007EB44A /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements tvOS" */;
+			buildPhases = (
+				52AAE61E1BDF87B9007EB44A /* Sources */,
+				52AAE61F1BDF87B9007EB44A /* Frameworks */,
+				52AAE6201BDF87B9007EB44A /* Headers */,
+				52AAE6211BDF87B9007EB44A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyAcknowledgements tvOS";
+			productName = "SwiftyAcknowledgements tvOS";
+			productReference = 52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52FC377F1B9F6A0A005EFE87 /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements iOS" */;
@@ -187,6 +226,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Mathias Nagler";
 				TargetAttributes = {
+					52AAE6221BDF87B9007EB44A = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					52FC37761B9F6A0A005EFE87 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -210,11 +252,19 @@
 			targets = (
 				52FC37761B9F6A0A005EFE87 /* SwiftyAcknowledgements iOS */,
 				52FC378C1B9F6BEF005EFE87 /* iOS Example */,
+				52AAE6221BDF87B9007EB44A /* SwiftyAcknowledgements tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		52AAE6211BDF87B9007EB44A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52FC37751B9F6A0A005EFE87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,6 +303,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52AAE61E1BDF87B9007EB44A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52AAE62C1BDF87F5007EB44A /* AcknowledgementsTableViewController.swift in Sources */,
+				52AAE62D1BDF87F5007EB44A /* AcknowledgementViewController.swift in Sources */,
+				52AAE62B1BDF87F5007EB44A /* Acknowledgement.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52FC37721B9F6A0A005EFE87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,6 +362,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		52AAE6291BDF87B9007EB44A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyAcknowledgements/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.mathiasnagler.SwiftyAcknowledgements;
+				PRODUCT_NAME = SwiftyAcknowledgements;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		52AAE62A1BDF87B9007EB44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyAcknowledgements/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.mathiasnagler.SwiftyAcknowledgements;
+				PRODUCT_NAME = SwiftyAcknowledgements;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		52FC377D1B9F6A0A005EFE87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -459,6 +557,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		52AAE6281BDF87B9007EB44A /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52AAE6291BDF87B9007EB44A /* Debug */,
+				52AAE62A1BDF87B9007EB44A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		52FC37711B9F6A0A005EFE87 /* Build configuration list for PBXProject "SwiftyAcknowledgements" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
