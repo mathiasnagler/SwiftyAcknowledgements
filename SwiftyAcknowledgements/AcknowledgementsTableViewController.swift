@@ -27,6 +27,18 @@ public class AcknowledgementsTableViewController: UITableViewController {
             tableView.tableFooterView = tableFooterView
         }
     }
+    
+    @IBInspectable public var headerFontSize: CGFloat = 12 {
+        didSet {
+            tableView.tableHeaderView = tableHeaderView
+        }
+    }
+    
+    @IBInspectable public var footerFontSize: CGFloat = 12 {
+        didSet {
+            tableView.tableFooterView = tableHeaderView
+        }
+    }
 
     /// The name of the plist containing the acknowledgements, defaults to **Acknowledgements**.
     @IBInspectable public var acknowledgementsPlistName = "Acknowledgements"
@@ -120,6 +132,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
         
         let headerView = HeaderFooterView()
         headerView.label.text = headerText
+        headerView.fontSize = headerFontSize
         return headerView
     }
     
@@ -130,6 +143,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
         
         let footerView = HeaderFooterView()
         footerView.label.text = footerText
+        footerView.fontSize = footerFontSize
         return footerView
     }
 
@@ -146,6 +160,15 @@ private extension UITableViewCell {
 private class HeaderFooterView: UIView {
     
     // MARK: Properties
+    
+    var fontSize: CGFloat {
+        get {
+            return label.font.pointSize
+        }
+        set {
+            label.font = UIFont.systemFontOfSize(newValue)
+        }
+    }
     
     lazy var label: UILabel = {
         let label = UILabel()
