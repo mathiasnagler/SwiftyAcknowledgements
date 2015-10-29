@@ -17,28 +17,30 @@ public class AcknowledgementsTableViewController: UITableViewController {
     /// The text to be displayed in the **UITableView**'s **tableHeader**, if any.
     @IBInspectable public var headerText: String? {
         didSet {
-            tableView.tableHeaderView = tableHeaderView
+            tableView.tableHeaderView = newTableHeaderView
         }
     }
     
     /// The text to be displayed in the **UITableView**'s **tableFooter**, if any.
     @IBInspectable public var footerText: String? {
         didSet {
-            tableView.tableFooterView = tableFooterView
+            tableView.tableFooterView = newTableFooterView
         }
     }
     
-    @IBInspectable public var headerFontSize: CGFloat = 12 {
+    @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleSubheadline) {
         didSet {
-            tableView.tableHeaderView = tableHeaderView
+            tableView.tableHeaderView = newTableHeaderView
         }
     }
     
-    @IBInspectable public var footerFontSize: CGFloat = 12 {
+    @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleSubheadline) {
         didSet {
-            tableView.tableFooterView = tableHeaderView
+            tableView.tableFooterView = newTableHeaderView
         }
     }
+    
+    @IBInspectable public var detailFontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleBody)
 
     /// The name of the plist containing the acknowledgements, defaults to **Acknowledgements**.
     @IBInspectable public var acknowledgementsPlistName = "Acknowledgements"
@@ -120,12 +122,13 @@ public class AcknowledgementsTableViewController: UITableViewController {
     
     public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailViewController = AcknowledgementViewController(acknowledgement: acknowledgements[indexPath.row])
+        detailViewController.fontSize = detailFontSize
         showViewController(detailViewController, sender: self)
     }
     
     // MARK: TableView Header and Footer
     
-    private var tableHeaderView: UIView? {
+    private var newTableHeaderView: UIView? {
         guard let headerText = headerText else {
             return nil
         }
@@ -136,7 +139,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
         return headerView
     }
     
-    private var tableFooterView: UIView? {
+    private var newTableFooterView: UIView? {
         guard let footerText = footerText else {
             return nil
         }

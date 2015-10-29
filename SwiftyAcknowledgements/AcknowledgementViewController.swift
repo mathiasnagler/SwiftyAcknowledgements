@@ -12,11 +12,50 @@ public class AcknowledgementViewController: UIViewController {
     
     // MARK: Properties
     
+    public var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleBody) {
+        didSet {
+            textView.font = UIFont.systemFontOfSize(fontSize)
+        }
+    }
+    
     /// The Acknowledgement instance that is displayed by the ViewController.
     public let acknowledgement: Acknowledgement
     
     /// The ViewController's view
-    public private(set) var textView: UITextView!
+    public private(set) lazy var textView: UITextView = {
+        let textView = UITextView(frame: CGRectZero)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.alwaysBounceVertical   = true
+        textView.font                   = UIFont.systemFontOfSize(self.fontSize)
+        textView.textContainerInset     = UIEdgeInsetsMake(12, 10, 12, 10)
+        textView.userInteractionEnabled = true
+        
+        #if os(iOS)
+            textView.editable           = false
+            textView.dataDetectorTypes  = .Link
+        #endif
+
+        #if os(tvOS)
+            textView.selectable = true
+            textView.panGestureRecognizer.allowedTouchTypes = [UITouchType.Indirect.rawValue]
+        #endif
+        
+        return textView
+    }()
+
+    #if os(tvOS)
+        private var gradientLayer: CAGradientLayer = {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor,
+                UIColor.blackColor().CGColor, UIColor.clearColor().CGColor]
+            gradientLayer.locations = [0, 0.06, 1, 1]
+            return gradientLayer
+        }()
+    #endif
+    
+    override public var preferredFocusedView: UIView? {
+        return textView
+    }
     
     // MARK: Initialization
     
@@ -31,27 +70,38 @@ public class AcknowledgementViewController: UIViewController {
     
     // MARK: UIViewController Overrides
     
-    public override func loadView() {
-        let textView = UITextView(frame: CGRectZero)
-        textView.alwaysBounceVertical   = true
-        textView.font                   = UIFont.systemFontOfSize(17)
-        textView.text                   = acknowledgement.text
-        textView.textContainerInset     = UIEdgeInsetsMake(12, 10, 12, 10)
-        
-        #if os(iOS)
-            textView.editable           = false
-            textView.dataDetectorTypes  = .Link
-        #endif
-        
-        self.view       = textView
-        self.textView   = textView
-    }
-    
     public override func viewDidLoad() {
+        view.addSubview(textView)
+        
+        #if os(tvOS)
+            textView.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor).active = true
+            textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
+            textView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+            textView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.7).active = true
+        #else
+            textView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
+            textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
+            textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
+            textView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
+        #endif
+            
+        textView.text = acknowledgement.text
         title = acknowledgement.title
         textView.contentOffset = CGPointZero
+        
+        #if os(tvOS)
+            textView.superview?.layer.mask = gradientLayer
+        #endif
 
         super.viewDidLoad()
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        #if os(tvOS)
+            gradientLayer.frame = textView.frame
+        #endif
+        
+        super.viewDidLayoutSubviews()
     }
     
 }
