@@ -1,5 +1,7 @@
 # SwiftyAcknowledgements
 [![Build Status](https://travis-ci.org/mathiasnagler/SwiftyAcknowledgements.svg?branch=develop)](https://travis-ci.org/mathiasnagler/SwiftyAcknowledgements)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20tvOS-lightgrey.svg)
 
 SwiftyAcknowledgements makes it easy to integrate acknowledgements for third party libraries into your iOS Apps.
 
