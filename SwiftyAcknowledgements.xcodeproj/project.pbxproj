@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527046721BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
+		527046731BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
 		5275A9AA1B9F6F99007AD576 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */; };
 		52AAE62B1BDF87F5007EB44A /* Acknowledgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */; };
 		52AAE62C1BDF87F5007EB44A /* AcknowledgementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */; };
@@ -18,6 +20,7 @@
 		52AAE63E1BDF9A51007EB44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AAE63D1BDF9A51007EB44A /* Assets.xcassets */; };
 		52AAE6431BDF9AB0007EB44A /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */; };
 		52AAE6441BDF9AB0007EB44A /* SwiftyAcknowledgements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		52AAE64A1BDFAB27007EB44A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52AAE6491BDFAB27007EB44A /* Acknowledgements.plist */; };
 		52E10E141BDE37C200C6176A /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
 		52E10E151BDE37C200C6176A /* SwiftyAcknowledgements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52FC377B1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -74,6 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontDescriptorExtensions.swift; sourceTree = "<group>"; };
 		5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
 		52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAcknowledgements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AAE6341BDF9A51007EB44A /* tvOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +86,7 @@
 		52AAE63B1BDF9A51007EB44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52AAE63D1BDF9A51007EB44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52AAE63F1BDF9A51007EB44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52AAE6491BDFAB27007EB44A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
 		52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAcknowledgements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyAcknowledgements.h; sourceTree = "<group>"; };
 		52FC377C1B9F6A0A005EFE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 				52AAE63A1BDF9A51007EB44A /* Main.storyboard */,
 				52AAE63D1BDF9A51007EB44A /* Assets.xcassets */,
 				52AAE63F1BDF9A51007EB44A /* Info.plist */,
+				52AAE6491BDFAB27007EB44A /* Acknowledgements.plist */,
 			);
 			path = "tvOS Example";
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 				52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */,
 				52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */,
 				52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */,
+				527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */,
 				52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */,
 				52FC377C1B9F6A0A005EFE87 /* Info.plist */,
 			);
@@ -236,6 +243,7 @@
 			buildPhases = (
 				52AAE6301BDF9A51007EB44A /* Sources */,
 				52AAE6311BDF9A51007EB44A /* Frameworks */,
+				52AAE6481BDFAAE1007EB44A /* Generate Acknowledgements */,
 				52AAE6321BDF9A51007EB44A /* Resources */,
 				52AAE6471BDF9AB0007EB44A /* Embed Frameworks */,
 			);
@@ -344,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AAE64A1BDFAB27007EB44A /* Acknowledgements.plist in Resources */,
 				52AAE63E1BDF9A51007EB44A /* Assets.xcassets in Resources */,
 				52AAE63C1BDF9A51007EB44A /* Main.storyboard in Resources */,
 			);
@@ -384,6 +393,20 @@
 			shellPath = /bin/sh;
 			shellScript = "${SRCROOT}/Scripts/GenerateLicenseFile.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/iOS\\ Example/Acknowledgements.plist";
 		};
+		52AAE6481BDFAAE1007EB44A /* Generate Acknowledgements */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Acknowledgements";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Scripts/GenerateLicenseFile.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/tvOS\\ Example/Acknowledgements.plist";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -393,6 +416,7 @@
 			files = (
 				52AAE62C1BDF87F5007EB44A /* AcknowledgementsTableViewController.swift in Sources */,
 				52AAE62D1BDF87F5007EB44A /* AcknowledgementViewController.swift in Sources */,
+				527046731BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */,
 				52AAE62B1BDF87F5007EB44A /* Acknowledgement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +436,7 @@
 			files = (
 				52FC37871B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift in Sources */,
 				52FC37881B9F6A94005EFE87 /* AcknowledgementViewController.swift in Sources */,
+				527046721BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */,
 				52FC37861B9F6A94005EFE87 /* Acknowledgement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,6 +727,7 @@
 				52AAE62A1BDF87B9007EB44A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52AAE6401BDF9A51007EB44A /* Build configuration list for PBXNativeTarget "tvOS Example" */ = {
 			isa = XCConfigurationList;
@@ -710,6 +736,7 @@
 				52AAE6421BDF9A51007EB44A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52FC37711B9F6A0A005EFE87 /* Build configuration list for PBXProject "SwiftyAcknowledgements" */ = {
 			isa = XCConfigurationList;
