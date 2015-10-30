@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Acknowledgement {
+public struct Acknowledgement: Equatable {
     
     // MARK: Properties
     
@@ -49,4 +49,10 @@ public struct Acknowledgement {
         return acknowledgements
     }
     
+}
+
+// MARK: Equatable
+
+public func ==(lhs: Acknowledgement, rhs: Acknowledgement) -> Bool {
+    return ((lhs.title == rhs.title) && (lhs.text == rhs.text))
 }
