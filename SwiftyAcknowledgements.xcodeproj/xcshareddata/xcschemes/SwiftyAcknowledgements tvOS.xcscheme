@@ -26,9 +26,29 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "527046891BE204A1004CD4FC"
+               BuildableName = "SwiftyAcknowledgements tvOS Tests.xctest"
+               BlueprintName = "SwiftyAcknowledgements tvOS Tests"
+               ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "52AAE6221BDF87B9007EB44A"
+            BuildableName = "SwiftyAcknowledgements.framework"
+            BlueprintName = "SwiftyAcknowledgements tvOS"
+            ReferencedContainer = "container:SwiftyAcknowledgements.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
