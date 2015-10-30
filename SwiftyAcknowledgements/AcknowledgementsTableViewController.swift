@@ -70,12 +70,22 @@ public class AcknowledgementsTableViewController: UITableViewController {
     public var sortingClosure: SortingClosure? = { (left, right) in
         var comparsion = left.title.compare(right.title)
         return comparsion == .OrderedAscending
+    } {
+        didSet {
+            if let sortingClosure = sortingClosure {
+                _acknowledgements = _acknowledgements.sort(sortingClosure)
+            }
+        }
     }
     
     // MARK: Initialization
     
     public init(acknowledgementsPlistPath: String? = nil) {
         super.init(style: .Grouped)
+    }
+    
+    override internal init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -197,10 +207,10 @@ private class HeaderFooterView: UIView {
     
     private func commonInit() {
         addSubview(label)
-        leadingAnchor.constraintEqualToAnchor(label.leadingAnchor, constant: -16).active = true
-        trailingAnchor.constraintEqualToAnchor(label.trailingAnchor, constant: 16).active = true
-        topAnchor.constraintEqualToAnchor(label.topAnchor, constant: -16).active = true
-        bottomAnchor.constraintEqualToAnchor(label.bottomAnchor, constant: 16).active = true
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: label, attribute: .Leading, multiplier: 1, constant: -16))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: label, attribute: .Trailing, multiplier: 1, constant: 16))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: label, attribute: .Top, multiplier: 1, constant: -16))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: label, attribute: .Bottom, multiplier: 1, constant: 16))
     }
     
     // MARK: UIView overrides
@@ -214,7 +224,7 @@ private class HeaderFooterView: UIView {
     
     private func resize() {
         translatesAutoresizingMaskIntoConstraints = false
-        let widthConstraint = widthAnchor.constraintEqualToConstant(superview?.bounds.width ?? 500)
+        let widthConstraint = NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: superview?.bounds.width ?? 500)
         widthConstraint.active = true
         let height = systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
         removeConstraint(widthConstraint)

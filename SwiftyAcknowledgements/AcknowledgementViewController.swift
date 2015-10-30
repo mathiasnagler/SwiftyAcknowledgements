@@ -74,15 +74,15 @@ public class AcknowledgementViewController: UIViewController {
         view.addSubview(textView)
         
         #if os(tvOS)
-            textView.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor).active = true
-            textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
-            textView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-            textView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.7).active = true
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 0.7, constant: 0))
         #else
-            textView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
-            textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
-            textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
-            textView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Leading, relatedBy: .Equal, toItem: view, attribute: .Leading, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Trailing, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1, constant: 0))
         #endif
             
         textView.text = acknowledgement.text
