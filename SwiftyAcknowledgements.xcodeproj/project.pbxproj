@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		524F34CE1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */; };
-		524F34CF1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */; };
-		524F34D11BE2491800784625 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34D01BE2491800784625 /* BaseTestCase.swift */; };
-		524F34D21BE2491800784625 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34D01BE2491800784625 /* BaseTestCase.swift */; };
 		527046721BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
 		527046731BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
-		5270467E1BE203CB004CD4FC /* AcknowledgementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */; };
+		5270467E1BE203CB004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270467D1BE203CB004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift */; };
 		527046801BE203CB004CD4FC /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
 		5270468F1BE204A1004CD4FC /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */; };
-		527046951BE204C4004CD4FC /* AcknowledgementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */; };
+		527046951BE204C4004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270467D1BE203CB004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift */; };
 		527046991BE2064B004CD4FC /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527046981BE2064B004CD4FC /* Acknowledgements.plist */; };
 		5270469A1BE2064B004CD4FC /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527046981BE2064B004CD4FC /* Acknowledgements.plist */; };
 		5275A9AA1B9F6F99007AD576 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5275A9A91B9F6F99007AD576 /* Acknowledgements.plist */; };
@@ -101,11 +97,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsTableViewControllerTests.swift; sourceTree = "<group>"; };
-		524F34D01BE2491800784625 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontDescriptorExtensions.swift; sourceTree = "<group>"; };
 		5270467B1BE203CB004CD4FC /* SwiftyAcknowledgements iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAcknowledgements iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementTests.swift; sourceTree = "<group>"; };
+		5270467D1BE203CB004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyAcknowledgementsTests_iOS.swift; sourceTree = "<group>"; };
 		5270467F1BE203CB004CD4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5270468A1BE204A1004CD4FC /* SwiftyAcknowledgements tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAcknowledgements tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		527046981BE2064B004CD4FC /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
@@ -186,9 +180,7 @@
 		5270467C1BE203CB004CD4FC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				524F34D01BE2491800784625 /* BaseTestCase.swift */,
-				5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */,
-				524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */,
+				5270467D1BE203CB004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift */,
 				5270469B1BE20680004CD4FC /* Resources */,
 				5270469D1BE206C6004CD4FC /* Supporting Files */,
 			);
@@ -624,9 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524F34CE1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */,
-				5270467E1BE203CB004CD4FC /* AcknowledgementTests.swift in Sources */,
-				524F34D11BE2491800784625 /* BaseTestCase.swift in Sources */,
+				5270467E1BE203CB004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,9 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524F34CF1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */,
-				527046951BE204C4004CD4FC /* AcknowledgementTests.swift in Sources */,
-				524F34D21BE2491800784625 /* BaseTestCase.swift in Sources */,
+				527046951BE204C4004CD4FC /* SwiftyAcknowledgementsTests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,7 +997,6 @@
 				527046851BE203CB004CD4FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		527046921BE204A1004CD4FC /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements tvOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -1018,7 +1005,6 @@
 				527046941BE204A1004CD4FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		52AAE6281BDF87B9007EB44A /* Build configuration list for PBXNativeTarget "SwiftyAcknowledgements tvOS" */ = {
 			isa = XCConfigurationList;
