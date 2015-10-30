@@ -7,8 +7,9 @@ SwiftyAcknowledgements makes it easy to integrate acknowledgements for third par
 
 ## Requirements
 
-- iOS 9.0 or higher
-- Xcode 7.0 or higher
+- iOS 8.0 or higher
+- tvOS 9.0 or higher
+- Xcode 7.1 or higher
 
 ## Components
 
@@ -51,6 +52,10 @@ After that, build your project and add the generated license file to your Xcode 
 ## Usage
 
 The framework contains `AcknowledgementsTableViewController.swift` that can be pushed onto a `UINavigationController` or presented modally. The `AcknowledgementsTableViewController` will automatically for a file `Acknowledgements.plist` and display its contents. If your license file is named differently, you can specify your custom name using the property `acknowledgementsPlistName: String`.
+
+## Customization
+
+TODO: Add Customization Section
 
 ## Credits
 
