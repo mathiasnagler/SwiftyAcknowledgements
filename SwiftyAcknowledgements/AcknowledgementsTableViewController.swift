@@ -164,7 +164,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
         return headerView
     }
     
-    private var newTableFooterView: UIView? {
+    public var newTableFooterView: UIView? {
         guard let footerText = footerText else {
             return nil
         }
