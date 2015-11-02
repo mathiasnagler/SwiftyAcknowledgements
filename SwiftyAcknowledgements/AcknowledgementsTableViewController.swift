@@ -153,7 +153,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     
     // MARK: TableView Header and Footer
     
-    private var newTableHeaderView: UIView? {
+    public var newTableHeaderView: UIView? {
         guard let headerText = headerText else {
             return nil
         }
