@@ -12,7 +12,8 @@ public class AcknowledgementViewController: UIViewController {
     
     // MARK: Properties
     
-    public var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleBody) {
+    /// The font size used for displaying the acknowledgement's text
+    public var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleBody) {
         didSet {
             textView.font = UIFont.systemFontOfSize(fontSize)
         }
@@ -21,7 +22,7 @@ public class AcknowledgementViewController: UIViewController {
     /// The Acknowledgement instance that is displayed by the ViewController.
     public let acknowledgement: Acknowledgement
     
-    /// The ViewController's view
+    /// The textView used for displaying the acknowledgement's text
     public private(set) lazy var textView: UITextView = {
         let textView = UITextView(frame: CGRectZero)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,6 +60,9 @@ public class AcknowledgementViewController: UIViewController {
     
     // MARK: Initialization
     
+    /// Initializes a new AcknowledgementViewController instance and configures it using the given acknowledgement.
+    /// - Parameter acknowledgement: The acknowledgement that the viewController should display
+    /// - Returns: A newly initialized AcknowledgementViewController instance configured with the acknowledgements title and text.
     public required init(acknowledgement: Acknowledgement) {
         self.acknowledgement = acknowledgement
         super.init(nibName: nil, bundle: nil)

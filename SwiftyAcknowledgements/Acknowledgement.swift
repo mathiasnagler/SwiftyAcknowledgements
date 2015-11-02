@@ -51,7 +51,7 @@ public struct Acknowledgement: Equatable {
     
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 public func ==(lhs: Acknowledgement, rhs: Acknowledgement) -> Bool {
     return ((lhs.title == rhs.title) && (lhs.text == rhs.text))

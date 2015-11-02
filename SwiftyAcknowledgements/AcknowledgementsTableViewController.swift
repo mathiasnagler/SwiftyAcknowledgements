@@ -28,19 +28,22 @@ public class AcknowledgementsTableViewController: UITableViewController {
         }
     }
     
-    @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleSubheadline) {
+    /// The font size to be used for the **UITableView**'s **tableHeader**. Defaults to the size of **UIFontTextStyleSubheadline**
+    @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleSubheadline) {
         didSet {
             tableView.tableHeaderView = newTableHeaderView
         }
     }
     
-    @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleSubheadline) {
+    /// The font size to be used for the **UITableView**'s **tableFooter**. Defaults to the size of **UIFontTextStyleSubheadline**
+    @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleSubheadline) {
         didSet {
             tableView.tableFooterView = newTableHeaderView
         }
     }
     
-    @IBInspectable public var detailFontSize: CGFloat = UIFontDescriptor.preferredFontSizeTextStyle(UIFontTextStyleBody)
+    /// The font size to be used for the **UITableView**'s cells. Defaults to the size of **UIFontTextStyleBody**
+    @IBInspectable public var detailFontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleBody)
 
     /// The name of the plist containing the acknowledgements, defaults to **Acknowledgements**.
     @IBInspectable public var acknowledgementsPlistName = "Acknowledgements"
@@ -56,6 +59,9 @@ public class AcknowledgementsTableViewController: UITableViewController {
         return Acknowledgement.acknowledgementsFromPlistAtPath(acknowledgementsPlistPath)
     }()
     
+    /// The acknowledgements that are displayed by the TableViewController. The array is initialized with the contents of the
+    /// plist with *acknowledgementPlistName*. To display custom acknowledements add them to the array. The tableView will
+    /// reload its contents after any modification to the array.
     public var acknowledgements: [Acknowledgement] {
         set {
             _acknowledgements = sortingClosure != nil ? newValue.sort(sortingClosure!) : newValue
@@ -66,7 +72,16 @@ public class AcknowledgementsTableViewController: UITableViewController {
         }
     }
     
+    /// Closure type used for sorting acknowledgements.
+    /// - Parameter lhs: acknowledgement *lhs*
+    /// - Parameter rhs: acknowledgement *rhs*
+    /// - Returns: A boolean indicating wether *lhs* is ordered before *rhs*
     public typealias SortingClosure = ((Acknowledgement, Acknowledgement) -> Bool)
+    
+    /// A closure used to sort the *acknowledgements* array, defaults to a closure
+    /// that sorts alphabetically. The sorting closure can be changed any time and the
+    /// *acknowledgements* array will then be re-sorted and afterwards the tableView
+    /// will reload its contents.
     public var sortingClosure: SortingClosure? = { (left, right) in
         var comparsion = left.title.compare(right.title)
         return comparsion == .OrderedAscending
