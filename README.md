@@ -55,7 +55,9 @@ The framework contains `AcknowledgementsTableViewController.swift` that can be p
 
 ## Customization
 
-TODO: Add Customization Section
+There are several ways you can customize the appearance of SwiftyAcknowledgements ViewControllers. The easiest possibility is to integrate using a storyboard and setting the provided IBInspectables on AcknowledgementsTableViewController. Using this method you can customize *font sizes* and the text for the *table header* and *footer*.
+
+If you need additional customization options, you can always build a custom subclasses for the provided ViewControllers and override the desired methods.
 
 ## Credits
 
