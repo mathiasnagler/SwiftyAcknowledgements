@@ -74,7 +74,7 @@ libraries.forEach({ (library: String) in
 })
 
 // Generate plist from result array
-let plist = try! NSPropertyListSerialization.dataWithPropertyList(licenses, format: NSPropertyListFormat.XMLFormat_v1_0, options: NSPropertyListWriteInvalidError)
+let plist = try! NSPropertyListSerialization.dataWithPropertyList(licenses, format: NSPropertyListFormat.XMLFormat_v1_0, options: 0)
 
 // Write plist to disk
 plist.writeToFile(outFile, atomically: true)
