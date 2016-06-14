@@ -13,9 +13,9 @@ public class AcknowledgementViewController: UIViewController {
     // MARK: Properties
     
     /// The font size used for displaying the acknowledgement's text
-    public var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleBody) {
+    public var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(style: UIFontTextStyleBody) {
         didSet {
-            textView.font = UIFont.systemFontOfSize(fontSize)
+            textView.font = UIFont.systemFont(ofSize: fontSize)
         }
     }
     
@@ -24,21 +24,21 @@ public class AcknowledgementViewController: UIViewController {
     
     /// The textView used for displaying the acknowledgement's text
     public private(set) lazy var textView: UITextView = {
-        let textView = UITextView(frame: CGRectZero)
+        let textView = UITextView(frame: CGRect.zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.alwaysBounceVertical   = true
-        textView.font                   = UIFont.systemFontOfSize(self.fontSize)
+        textView.font                   = UIFont.systemFont(ofSize: self.fontSize)
         textView.textContainerInset     = UIEdgeInsetsMake(12, 10, 12, 10)
-        textView.userInteractionEnabled = true
+        textView.isUserInteractionEnabled = true
         
         #if os(iOS)
-            textView.editable           = false
-            textView.dataDetectorTypes  = .Link
+            textView.isEditable           = false
+            textView.dataDetectorTypes  = .link
         #endif
 
         #if os(tvOS)
-            textView.selectable = true
-            textView.panGestureRecognizer.allowedTouchTypes = [UITouchType.Indirect.rawValue]
+            textView.isSelectable = true
+            textView.panGestureRecognizer.allowedTouchTypes = [UITouchType.indirect.rawValue]
         #endif
         
         return textView
@@ -47,8 +47,8 @@ public class AcknowledgementViewController: UIViewController {
     #if os(tvOS)
         private var gradientLayer: CAGradientLayer = {
             let gradientLayer = CAGradientLayer()
-            gradientLayer.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor,
-                UIColor.blackColor().CGColor, UIColor.clearColor().CGColor]
+            gradientLayer.colors = [UIColor.clear().cgColor, UIColor.black().cgColor,
+                UIColor.black().cgColor, UIColor.clear().cgColor]
             gradientLayer.locations = [0, 0.06, 1, 1]
             return gradientLayer
         }()
@@ -78,20 +78,20 @@ public class AcknowledgementViewController: UIViewController {
         view.addSubview(textView)
         
         #if os(tvOS)
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 0.7, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.7, constant: 0))
         #else
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Leading, relatedBy: .Equal, toItem: view, attribute: .Leading, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .Trailing, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
+            view.addConstraint(NSLayoutConstraint(item: textView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0))
         #endif
             
         textView.text = acknowledgement.text
         title = acknowledgement.title
-        textView.contentOffset = CGPointZero
+        textView.contentOffset = CGPoint.zero
         
         #if os(tvOS)
             textView.superview?.layer.mask = gradientLayer

@@ -34,7 +34,7 @@ public struct Acknowledgement: Equatable {
     */
     public static func acknowledgementsFromPlistAtPath(path: String) -> [Acknowledgement] {
         var acknowledgements = [Acknowledgement]()
-        
+
         if let plist = NSArray(contentsOfFile: path) as? Array<Dictionary<String, String>> {
             for dict in plist {
                 if let
@@ -45,10 +45,9 @@ public struct Acknowledgement: Equatable {
                 }
             }
         }
-        
+
         return acknowledgements
     }
-    
 }
 
 // MARK: - Equatable
