@@ -8,22 +8,22 @@
 
 import UIKit
 
-public class AcknowledgementViewController: UIViewController {
+open class AcknowledgementViewController: UIViewController {
     
     // MARK: Properties
     
     /// The font size used for displaying the acknowledgement's text
-    public var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(style: UIFontTextStyleBody) {
+    open var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyle.body.rawValue) {
         didSet {
             textView.font = UIFont.systemFont(ofSize: fontSize)
         }
     }
     
     /// The Acknowledgement instance that is displayed by the ViewController.
-    public let acknowledgement: Acknowledgement
+    open let acknowledgement: Acknowledgement
     
     /// The textView used for displaying the acknowledgement's text
-    public private(set) lazy var textView: UITextView = {
+    open fileprivate(set) lazy var textView: UITextView = {
         let textView = UITextView(frame: CGRect.zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.alwaysBounceVertical   = true
@@ -38,7 +38,7 @@ public class AcknowledgementViewController: UIViewController {
 
         #if os(tvOS)
             textView.isSelectable = true
-            textView.panGestureRecognizer.allowedTouchTypes = [UITouchType.indirect.rawValue]
+            textView.panGestureRecognizer.allowedTouchTypes = [NSNumber(value: UITouchType.indirect.rawValue)]
         #endif
         
         return textView
@@ -47,14 +47,14 @@ public class AcknowledgementViewController: UIViewController {
     #if os(tvOS)
         private var gradientLayer: CAGradientLayer = {
             let gradientLayer = CAGradientLayer()
-            gradientLayer.colors = [UIColor.clear().cgColor, UIColor.black().cgColor,
-                UIColor.black().cgColor, UIColor.clear().cgColor]
+            gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor,
+                UIColor.black.cgColor, UIColor.clear.cgColor]
             gradientLayer.locations = [0, 0.06, 1, 1]
             return gradientLayer
         }()
     #endif
     
-    override public var preferredFocusedView: UIView? {
+    override open var preferredFocusedView: UIView? {
         return textView
     }
     
@@ -74,7 +74,7 @@ public class AcknowledgementViewController: UIViewController {
     
     // MARK: UIViewController Overrides
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         view.addSubview(textView)
         
         #if os(tvOS)
@@ -100,7 +100,7 @@ public class AcknowledgementViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         #if os(tvOS)
             gradientLayer.frame = textView.frame
         #endif

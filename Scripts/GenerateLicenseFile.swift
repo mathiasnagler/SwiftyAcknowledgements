@@ -6,7 +6,7 @@ import Foundation
 
 extension String {
     func endsWith(str: String) -> Bool {
-        if let range = self.range(of: str, options:NSString.CompareOptions.backwardsSearch) {
+        if let range = self.range(of: str, options: .backwards) {
             return range.upperBound == self.endIndex
         }
         return false
@@ -16,7 +16,7 @@ extension String {
 // MARK: Internal functions
 
 func locateLicenseInFolder(folder: String) -> String? {
-    let filemanager = FileManager.default()
+    let filemanager = FileManager.default
     
     guard let subpaths = try? filemanager.subpathsOfDirectory(atPath: folder) else {
         return nil
@@ -30,7 +30,7 @@ func locateLicenseInFolder(folder: String) -> String? {
 // MARK: Main
 
 // Grab command line arguments
-let arguments = Process.arguments
+let arguments = CommandLine.arguments
 
 // Get the filename of the swift script for logging purposes
 let scriptFileName = arguments[0].components(separatedBy: "/").last!
@@ -50,10 +50,10 @@ if !inDict.endsWith(str: "/") {
 }
 
 // Initialize default NSFileManager
-let filemanager = FileManager.default()
+let filemanager = FileManager.default
 
 // Get subpaths (libraries at path)
-guard let libraries = try? filemanager.contentsOfDirectory(atPath: inDict) where libraries.count > 0 else {
+guard let libraries = try? filemanager.contentsOfDirectory(atPath: inDict), libraries.count > 0 else {
     print("Could not access directory at path \(inDict).")
     exit(1)
 }
@@ -63,9 +63,9 @@ var licenses = Array<Dictionary<String, String>>()
 
 // Load license for each library and add it to the result array
 libraries.forEach({ (library: String) in
-    guard let
-        licensePath = locateLicenseInFolder(folder: inDict + library),
-        licence = try? String(contentsOfFile: licensePath, encoding: String.Encoding.utf8)
+    guard
+        let licensePath = locateLicenseInFolder(folder: inDict + library),
+        let licence = try? String(contentsOfFile: licensePath, encoding: .utf8)
         else {
             return
     }
@@ -74,7 +74,7 @@ libraries.forEach({ (library: String) in
 })
 
 // Generate plist from result array
-let plist = try! PropertyListSerialization.data(fromPropertyList: licenses, format: PropertyListSerialization.PropertyListFormat.xmlFormat_v1_0, options: 0)
+let plist = try! PropertyListSerialization.data(fromPropertyList: licenses, format: .xml, options: 0)
 
 // Write plist to disk
 if let url = URL(string: outFile) {
