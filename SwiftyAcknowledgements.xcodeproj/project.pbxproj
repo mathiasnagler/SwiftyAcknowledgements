@@ -11,8 +11,6 @@
 		524F34CF1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */; };
 		524F34D11BE2491800784625 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34D01BE2491800784625 /* BaseTestCase.swift */; };
 		524F34D21BE2491800784625 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34D01BE2491800784625 /* BaseTestCase.swift */; };
-		527046721BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
-		527046731BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
 		5270467E1BE203CB004CD4FC /* AcknowledgementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */; };
 		527046801BE203CB004CD4FC /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
 		5270468F1BE204A1004CD4FC /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */; };
@@ -103,7 +101,6 @@
 /* Begin PBXFileReference section */
 		524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsTableViewControllerTests.swift; sourceTree = "<group>"; };
 		524F34D01BE2491800784625 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
-		527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontDescriptorExtensions.swift; sourceTree = "<group>"; };
 		5270467B1BE203CB004CD4FC /* SwiftyAcknowledgements iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAcknowledgements iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementTests.swift; sourceTree = "<group>"; };
 		5270467F1BE203CB004CD4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -295,7 +292,6 @@
 				52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */,
 				52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */,
 				52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */,
-				527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */,
 				52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */,
 				5270469E1BE206D5004CD4FC /* Supporting Files */,
 			);
@@ -649,7 +645,6 @@
 			files = (
 				52AAE62C1BDF87F5007EB44A /* AcknowledgementsTableViewController.swift in Sources */,
 				52AAE62D1BDF87F5007EB44A /* AcknowledgementViewController.swift in Sources */,
-				527046731BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */,
 				52AAE62B1BDF87F5007EB44A /* Acknowledgement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,7 +664,6 @@
 			files = (
 				52FC37871B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift in Sources */,
 				52FC37881B9F6A94005EFE87 /* AcknowledgementViewController.swift in Sources */,
-				527046721BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */,
 				52FC37861B9F6A94005EFE87 /* Acknowledgement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
