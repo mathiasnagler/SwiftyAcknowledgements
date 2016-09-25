@@ -12,14 +12,14 @@ import SwiftyAcknowledgements
 
 class BaseTestCase: XCTestCase {
     
-    func URLForResource(fileName: String, withExtension: String) -> NSURL {
-        let bundle = NSBundle(forClass: BaseTestCase.self)
-        return bundle.URLForResource(fileName, withExtension: withExtension)!
+    func URLForResource(_ fileName: String, withExtension: String) -> URL {
+        let bundle = Bundle(for: BaseTestCase.self)
+        return bundle.url(forResource: fileName, withExtension: withExtension)!
     }
     
-    func StringForResource(fileName: String, ofType: String) -> String {
-        let bundle = NSBundle(forClass: BaseTestCase.self)
-        return bundle.pathForResource(fileName, ofType: ofType)!
+    func StringForResource(_ fileName: String, ofType: String) -> String {
+        let bundle = Bundle(for: BaseTestCase.self)
+        return bundle.path(forResource: fileName, ofType: ofType)!
     }
     
 }

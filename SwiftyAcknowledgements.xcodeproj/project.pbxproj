@@ -11,8 +11,6 @@
 		524F34CF1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */; };
 		524F34D11BE2491800784625 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34D01BE2491800784625 /* BaseTestCase.swift */; };
 		524F34D21BE2491800784625 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34D01BE2491800784625 /* BaseTestCase.swift */; };
-		527046721BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
-		527046731BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */; };
 		5270467E1BE203CB004CD4FC /* AcknowledgementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */; };
 		527046801BE203CB004CD4FC /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC37771B9F6A0A005EFE87 /* SwiftyAcknowledgements.framework */; };
 		5270468F1BE204A1004CD4FC /* SwiftyAcknowledgements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AAE6231BDF87B9007EB44A /* SwiftyAcknowledgements.framework */; };
@@ -103,7 +101,6 @@
 /* Begin PBXFileReference section */
 		524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsTableViewControllerTests.swift; sourceTree = "<group>"; };
 		524F34D01BE2491800784625 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
-		527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontDescriptorExtensions.swift; sourceTree = "<group>"; };
 		5270467B1BE203CB004CD4FC /* SwiftyAcknowledgements iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyAcknowledgements iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5270467D1BE203CB004CD4FC /* AcknowledgementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementTests.swift; sourceTree = "<group>"; };
 		5270467F1BE203CB004CD4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -295,7 +292,6 @@
 				52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */,
 				52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */,
 				52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */,
-				527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */,
 				52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */,
 				5270469E1BE206D5004CD4FC /* Supporting Files */,
 			);
@@ -460,11 +456,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Mathias Nagler";
 				TargetAttributes = {
 					5270467A1BE203CB004CD4FC = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					527046891BE204A1004CD4FC = {
 						CreatedOnToolsVersion = 7.1;
@@ -477,9 +474,11 @@
 					};
 					52FC37761B9F6A0A005EFE87 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 					52FC378C1B9F6BEF005EFE87 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -601,7 +600,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Scripts/GenerateLicenseFile.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/Examples/iOS\\ Example/Resources/Acknowledgements.plist";
+			shellScript = "${SRCROOT}/Scripts/GenerateLicenseFile.swift ${SRCROOT}/Libraries ${PROJECT_DIR}/Examples/iOS\\ Example/Resources/Acknowledgements.plist";
 		};
 		52AAE6481BDFAAE1007EB44A /* Generate Acknowledgements */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -646,7 +645,6 @@
 			files = (
 				52AAE62C1BDF87F5007EB44A /* AcknowledgementsTableViewController.swift in Sources */,
 				52AAE62D1BDF87F5007EB44A /* AcknowledgementViewController.swift in Sources */,
-				527046731BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */,
 				52AAE62B1BDF87F5007EB44A /* Acknowledgement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,7 +664,6 @@
 			files = (
 				52FC37871B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift in Sources */,
 				52FC37881B9F6A94005EFE87 /* AcknowledgementViewController.swift in Sources */,
-				527046721BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift in Sources */,
 				52FC37861B9F6A94005EFE87 /* Acknowledgement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +738,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.SwiftyAcknowledgementsTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -752,6 +750,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.SwiftyAcknowledgementsTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -782,6 +781,7 @@
 		52AAE6291BDF87B9007EB44A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -801,6 +801,7 @@
 		52AAE62A1BDF87B9007EB44A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -820,9 +821,9 @@
 		52AAE6411BDF9A51007EB44A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Examples/tvOS Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.tvOS-Example";
@@ -836,9 +837,9 @@
 		52AAE6421BDF9A51007EB44A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Examples/tvOS Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.tvOS-Example";
@@ -862,8 +863,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -910,8 +913,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -931,6 +936,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -942,6 +948,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -953,6 +960,7 @@
 				PRODUCT_NAME = SwiftyAcknowledgements;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -960,6 +968,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -971,31 +980,34 @@
 				PRODUCT_NAME = SwiftyAcknowledgements;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		52FC379D1B9F6BEF005EFE87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Examples/iOS Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		52FC379E1B9F6BEF005EFE87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Examples/iOS Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mathiasnagler.iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
