@@ -18,7 +18,7 @@ class AcknowledgementsTests: BaseTestCase {
         XCTAssertEqual(acknowledgement.title, title, "The acknowledgements title was incorrect.")
         XCTAssertEqual(acknowledgement.text, text, "The acknowledgements text was incorrect.")
     }
-    
+
     func testLoadAcknowledgementsFromPlist() {
         let plist = StringForResource("Acknowledgements", ofType: "plist")
         let acknowledgements = Acknowledgement.acknowledgementsFromPlistAtPath(plist)
