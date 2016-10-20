@@ -6,8 +6,8 @@ import Foundation
 
 extension String {
     func endsWith(str: String) -> Bool {
-        if let range = self.rangeOfString(str, options:NSStringCompareOptions.BackwardsSearch) {
-            return range.endIndex == self.endIndex
+        if let range = self.range(of: str, options: .backwards) {
+            return range.upperBound == self.endIndex
         }
         return false
     }
@@ -16,13 +16,13 @@ extension String {
 // MARK: Internal functions
 
 func locateLicenseInFolder(folder: String) -> String? {
-    let filemanager = NSFileManager.defaultManager()
+    let filemanager = FileManager.default
     
-    guard let subpaths = try? filemanager.subpathsOfDirectoryAtPath(folder) else {
+    guard let subpaths = try? filemanager.subpathsOfDirectory(atPath: folder) else {
         return nil
     }
     
-    var filteredPaths = subpaths.filter { $0.endsWith("LICENSE") || $0.endsWith("LICENSE.txt") }
+    var filteredPaths = subpaths.filter { $0.endsWith(str: "LICENSE") || $0.endsWith(str: "LICENSE.txt") }
     filteredPaths = filteredPaths.map { folder + "/" + $0 }
     return filteredPaths.first
 }
@@ -30,10 +30,10 @@ func locateLicenseInFolder(folder: String) -> String? {
 // MARK: Main
 
 // Grab command line arguments
-let arguments = Process.arguments
+let arguments = CommandLine.arguments
 
 // Get the filename of the swift script for logging purposes
-let scriptFileName = arguments[0].componentsSeparatedByString("/").last!
+let scriptFileName = arguments[0].components(separatedBy: "/").last!
 
 // Check argument count
 if arguments.count != 3 {
@@ -45,15 +45,15 @@ var inDict = arguments[1]
 let outFile = arguments[2]
 
 // Add '/' to inDict if it is missing, otherwise the script will not find any subpaths
-if !inDict.endsWith("/") {
+if !inDict.endsWith(str: "/") {
     inDict += "/"
 }
 
 // Initialize default NSFileManager
-let filemanager = NSFileManager.defaultManager()
+let filemanager = FileManager.default
 
 // Get subpaths (libraries at path)
-guard let libraries = try? filemanager.contentsOfDirectoryAtPath(inDict) where libraries.count > 0 else {
+guard let libraries = try? filemanager.contentsOfDirectory(atPath: inDict), libraries.count > 0 else {
     print("Could not access directory at path \(inDict).")
     exit(1)
 }
@@ -63,9 +63,9 @@ var licenses = Array<Dictionary<String, String>>()
 
 // Load license for each library and add it to the result array
 libraries.forEach({ (library: String) in
-    guard let
-        licensePath = locateLicenseInFolder(inDict + library),
-        licence = try? NSString(contentsOfFile: licensePath, encoding: NSUTF8StringEncoding) as String
+    guard
+        let licensePath = locateLicenseInFolder(folder: inDict + library),
+        let licence = try? String(contentsOfFile: licensePath, encoding: .utf8)
         else {
             return
     }
@@ -74,7 +74,9 @@ libraries.forEach({ (library: String) in
 })
 
 // Generate plist from result array
-let plist = try! NSPropertyListSerialization.dataWithPropertyList(licenses, format: NSPropertyListFormat.XMLFormat_v1_0, options: 0)
+let plist = try! PropertyListSerialization.data(fromPropertyList: licenses, format: .xml, options: 0)
 
 // Write plist to disk
-plist.writeToFile(outFile, atomically: true)
+if let url = URL(string: outFile) {
+    try plist.write(to: url, options: NSData.WritingOptions.atomicWrite)
+}

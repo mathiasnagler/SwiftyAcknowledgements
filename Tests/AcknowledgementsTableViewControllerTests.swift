@@ -46,7 +46,7 @@ class AcknowledgementsTableViewControllerTests: BaseTestCase {
     func testCustomStorting() {
         viewController.sortingClosure = { (left: Acknowledgement, right: Acknowledgement) in
             let comparsion = left.title.compare(right.title)
-            return comparsion == .OrderedDescending
+            return comparsion == .orderedDescending
         }
             
         XCTAssert(viewController.acknowledgements == [d, c, b, a], "Custom sort did not produce an alphabetically descending sorted list.")
@@ -58,7 +58,7 @@ class AcknowledgementsTableViewControllerTests: BaseTestCase {
     }
     
     func testTableDataSourceCellForRowAtIndexPath() {
-        let cell = viewController.tableView(viewController.tableView, cellForRowAtIndexPath: NSIndexPath(forItem: 0, inSection: 0))
+        let cell = viewController.tableView(viewController.tableView, cellForRowAt: IndexPath(item: 0, section: 0))
         XCTAssertEqual(cell.textLabel!.text, viewController.acknowledgements[0].title)
     }
     
