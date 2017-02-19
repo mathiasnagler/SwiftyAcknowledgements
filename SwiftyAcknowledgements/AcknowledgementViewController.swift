@@ -8,31 +8,31 @@
 
 import UIKit
 
-open class AcknowledgementViewController: UIViewController {
+internal class AcknowledgementViewController: UIViewController {
     
     // MARK: Properties
     
     /// The font size used for displaying the acknowledgement's text
-    open var fontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyle.body.rawValue) {
+    internal var fontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.body.rawValue) {
         didSet {
             textView.font = UIFont.systemFont(ofSize: fontSize)
         }
     }
     
     /// The Acknowledgement instance that is displayed by the ViewController.
-    open let acknowledgement: Acknowledgement
+    internal let acknowledgement: Acknowledgement
     
     /// The textView used for displaying the acknowledgement's text
-    open fileprivate(set) lazy var textView: UITextView = {
+    internal private(set) lazy var textView: UITextView = {
         let textView = UITextView(frame: CGRect.zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.alwaysBounceVertical   = true
-        textView.font                   = UIFont.systemFont(ofSize: self.fontSize)
-        textView.textContainerInset     = UIEdgeInsetsMake(12, 10, 12, 10)
+        textView.alwaysBounceVertical     = true
+        textView.font                     = UIFont.systemFont(ofSize: self.fontSize)
+        textView.textContainerInset       = UIEdgeInsetsMake(12, 10, 12, 10)
         textView.isUserInteractionEnabled = true
         
         #if os(iOS)
-            textView.isEditable           = false
+            textView.isEditable         = false
             textView.dataDetectorTypes  = .link
         #endif
 
@@ -54,7 +54,7 @@ open class AcknowledgementViewController: UIViewController {
         }()
     #endif
     
-    override open var preferredFocusedView: UIView? {
+    override internal var preferredFocusedView: UIView? {
         return textView
     }
     
@@ -74,7 +74,7 @@ open class AcknowledgementViewController: UIViewController {
     
     // MARK: UIViewController Overrides
     
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         view.addSubview(textView)
         
         #if os(tvOS)
@@ -100,7 +100,7 @@ open class AcknowledgementViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    open override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         #if os(tvOS)
             gradientLayer.frame = textView.frame
         #endif
