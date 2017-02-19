@@ -17,46 +17,50 @@ public class AcknowledgementsTableViewController: UITableViewController {
     /// The text to be displayed in the **UITableView**'s **tableHeader**, if any.
     @IBInspectable public var headerText: String? {
         didSet {
-            tableView.tableHeaderView = newTableHeaderView
+            headerView.text = headerText
+            updateHeaderFooterViews()
         }
     }
     
     /// The text to be displayed in the **UITableView**'s **tableFooter**, if any.
     @IBInspectable public var footerText: String? {
         didSet {
-            tableView.tableFooterView = newTableFooterView
+            footerView.text = footerText
+            updateHeaderFooterViews()
         }
     }
     
     /// The font size to be used for the **UITableView**'s **tableHeader**. Defaults to the size of **UIFontTextStyleSubheadline**
-    @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleSubheadline) {
+    @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.subheadline.rawValue) {
         didSet {
-            tableView.tableHeaderView = newTableHeaderView
+            headerView.fontSize = headerFontSize
+            updateHeaderFooterViews()
         }
     }
     
     /// The font size to be used for the **UITableView**'s **tableFooter**. Defaults to the size of **UIFontTextStyleSubheadline**
-    @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleSubheadline) {
+    @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.subheadline.rawValue) {
         didSet {
-            tableView.tableFooterView = newTableHeaderView
+            footerView.fontSize = footerFontSize
+            updateHeaderFooterViews()
         }
     }
     
     /// The font size to be used for the **UITableView**'s cells. Defaults to the size of **UIFontTextStyleBody**
-    @IBInspectable public var detailFontSize: CGFloat = UIFontDescriptor.preferredFontSizeWithTextStyle(UIFontTextStyleBody)
+    @IBInspectable public var detailFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.body.rawValue)
 
     /// The name of the plist containing the acknowledgements, defaults to **Acknowledgements**.
     @IBInspectable public var acknowledgementsPlistName = "Acknowledgements"
     
     private lazy var _acknowledgements: [Acknowledgement] = {
         guard let
-            acknowledgementsPlistPath = NSBundle.mainBundle().pathForResource(
-                self.acknowledgementsPlistName, ofType: "plist")
+            acknowledgementsPlistPath = Bundle.main.path(
+                forResource: self.acknowledgementsPlistName, ofType: "plist")
         else {
             return [Acknowledgement]()
         }
 
-        return Acknowledgement.acknowledgementsFromPlistAtPath(acknowledgementsPlistPath)
+        return Acknowledgement.acknowledgements(fromPlistAt: acknowledgementsPlistPath)
     }()
     
     /// The acknowledgements that are displayed by the TableViewController. The array is initialized with the contents of the
@@ -64,7 +68,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     /// reload its contents after any modification to the array.
     public var acknowledgements: [Acknowledgement] {
         set {
-            _acknowledgements = sortingClosure != nil ? newValue.sort(sortingClosure!) : newValue
+            _acknowledgements = sortingClosure != nil ? newValue.sorted(by: sortingClosure!) : newValue
             tableView.reloadData()
         }
         get {
@@ -84,38 +88,55 @@ public class AcknowledgementsTableViewController: UITableViewController {
     /// will reload its contents.
     public var sortingClosure: SortingClosure? = { (left, right) in
         var comparsion = left.title.compare(right.title)
-        return comparsion == .OrderedAscending
+        return comparsion == .orderedAscending
     } {
         didSet {
             if let sortingClosure = sortingClosure {
-                _acknowledgements = _acknowledgements.sort(sortingClosure)
+                _acknowledgements = _acknowledgements.sorted(by: sortingClosure)
             }
         }
     }
     
+    private lazy var headerView: HeaderFooterView = {
+        let headerView = HeaderFooterView()
+        headerView.fontSize = self.headerFontSize
+        return headerView
+    }()
+    
+    private lazy var footerView: HeaderFooterView = {
+        let footerView = HeaderFooterView()
+        footerView.fontSize = self.footerFontSize
+        return footerView
+    }()
+    
     // MARK: Initialization
     
     public init(acknowledgementsPlistPath: String? = nil) {
-        super.init(style: .Grouped)
+        super.init(style: .grouped)
     }
     
-    override internal init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override internal init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        super.init(style: .Grouped)
+        super.init(style: .grouped)
     }
     
     // MARK: UIViewController overrides
     
-    public override func viewDidLoad() {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseId)
-        
+    override public func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseId)
+        
+        headerView.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: 50)
+        tableView.tableHeaderView = headerView
+        footerView.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: 50)
+        tableView.tableFooterView = footerView
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         if title == nil {
             title = "Acknowledgements"
         }
@@ -123,63 +144,61 @@ public class AcknowledgementsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
     
-    public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        
-        tableView.tableHeaderView = tableView.tableHeaderView
-        tableView.tableFooterView = tableView.tableFooterView
+    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        updateHeaderFooterViews(forWidth: size.width)
     }
     
     // MARK: UITableViewDataSource
     
-    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(UITableViewCell.reuseId, forIndexPath: indexPath)
+    override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseId, for: indexPath)
         cell.textLabel?.text = acknowledgements[indexPath.row].title
-        cell.accessoryType = .DisclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
-    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return acknowledgements.count
     }
     
     // MARK: UITableViewDelegate
     
-    public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = AcknowledgementViewController(acknowledgement: acknowledgements[indexPath.row])
         detailViewController.fontSize = detailFontSize
-        showViewController(detailViewController, sender: self)
+        show(detailViewController, sender: self)
     }
     
-    // MARK: TableView Header and Footer
+    // MARK: Private methods
     
-    public var newTableHeaderView: UIView? {
-        guard let headerText = headerText else {
-            return nil
-        }
-        
-        let headerView = HeaderFooterView()
-        headerView.label.text = headerText
-        headerView.fontSize = headerFontSize
-        return headerView
+    private func updateHeaderFooterViews() {
+        updateHeaderFooterViews(forWidth: view.bounds.width)
     }
     
-    public var newTableFooterView: UIView? {
-        guard let footerText = footerText else {
-            return nil
-        }
+    private func updateHeaderFooterViews(forWidth width: CGFloat) {
+        let headerWidthConstraint = NSLayoutConstraint(item: headerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
+        headerWidthConstraint.priority = 999
+        headerWidthConstraint.isActive = true
+        let headerHeight = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        headerWidthConstraint.isActive = false
+        headerView.frame = CGRect(x: 0, y: 0, width: width, height: headerHeight)
+        tableView.tableHeaderView = headerView
         
-        let footerView = HeaderFooterView()
-        footerView.label.text = footerText
-        footerView.fontSize = footerFontSize
-        return footerView
+        let footerWidthConstraint = NSLayoutConstraint(item: footerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
+        footerWidthConstraint.priority = 999
+        footerWidthConstraint.isActive = true
+        let footerHeight = footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        footerWidthConstraint.isActive = false
+        footerView.frame = CGRect(x: 0, y: 0, width: width, height: footerHeight)
+        tableView.tableFooterView = footerView
     }
 
 }
 
 private extension UITableViewCell {
     static var reuseId: String {
-        return String(self).componentsSeparatedByString(".").last!
+        return String(describing: self)
     }
 }
 
@@ -194,17 +213,26 @@ private class HeaderFooterView: UIView {
             return label.font.pointSize
         }
         set {
-            label.font = UIFont.systemFontOfSize(newValue)
+            label.font = UIFont.systemFont(ofSize: newValue)
         }
     }
     
-    lazy var label: UILabel = {
+    var text: String? {
+        get {
+            return label.text
+        }
+        set {
+            label.text = newValue
+        }
+    }
+    
+    private lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .Center
+        label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = .grayColor()
-        label.font = UIFont.systemFontOfSize(12)
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
     
@@ -222,31 +250,10 @@ private class HeaderFooterView: UIView {
     
     private func commonInit() {
         addSubview(label)
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: label, attribute: .Leading, multiplier: 1, constant: -16))
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: label, attribute: .Trailing, multiplier: 1, constant: 16))
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: label, attribute: .Top, multiplier: 1, constant: -16))
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: label, attribute: .Bottom, multiplier: 1, constant: 16))
-    }
-    
-    // MARK: UIView overrides
-    
-    private override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        resize()
-    }
-    
-    // MARK: Private
-    
-    private func resize() {
-        translatesAutoresizingMaskIntoConstraints = false
-        let widthConstraint = NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: superview?.bounds.width ?? 500)
-        widthConstraint.active = true
-        let height = systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-        removeConstraint(widthConstraint)
-        
-        translatesAutoresizingMaskIntoConstraints = true
-        
-        self.bounds = CGRectMake(0, 0, self.bounds.width, height)
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: label, attribute: .leading, multiplier: 1, constant: -16))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: label, attribute: .trailing, multiplier: 1, constant: 16))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: label, attribute: .top, multiplier: 1, constant: -16))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1, constant: 16))
     }
     
 }

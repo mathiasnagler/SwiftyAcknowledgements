@@ -21,7 +21,7 @@ class AcknowledgementsTests: BaseTestCase {
     
     func testLoadAcknowledgementsFromPlist() {
         let plist = StringForResource("Acknowledgements", ofType: "plist")
-        let acknowledgements = Acknowledgement.acknowledgementsFromPlistAtPath(plist)
+        let acknowledgements = Acknowledgement.acknowledgements(fromPlistAt: plist)
         XCTAssert(acknowledgements.count > 0, "No acknowledgements loaded. Is the plist empty?")
     }
     
