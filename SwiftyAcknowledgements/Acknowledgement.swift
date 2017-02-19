@@ -32,14 +32,14 @@ public struct Acknowledgement: Equatable {
     If the plist is not in the correct format an empty array will be returned.
     - Returns: An array of Acknowledgements.
     */
-    public static func acknowledgementsFromPlistAtPath(path: String) -> [Acknowledgement] {
+    public static func acknowledgements(fromPlistAt path: String) -> [Acknowledgement] {
         var acknowledgements = [Acknowledgement]()
         
         if let plist = NSArray(contentsOfFile: path) as? Array<Dictionary<String, String>> {
             for dict in plist {
                 if let
                     title = dict["title"],
-                    text = dict["text"]
+                    let text = dict["text"]
                 {
                     acknowledgements.append(Acknowledgement(title: title, text: text))
                 }
