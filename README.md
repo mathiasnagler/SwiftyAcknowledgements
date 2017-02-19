@@ -9,7 +9,7 @@ SwiftyAcknowledgements makes it easy to integrate acknowledgements for third par
 
 - iOS 8.0 or higher
 - tvOS 9.0 or higher
-- Xcode 7.1 or higher
+- Xcode 8.2 or higher
 
 ## Components
 
