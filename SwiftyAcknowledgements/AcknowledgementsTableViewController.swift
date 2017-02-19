@@ -17,28 +17,32 @@ public class AcknowledgementsTableViewController: UITableViewController {
     /// The text to be displayed in the **UITableView**'s **tableHeader**, if any.
     @IBInspectable public var headerText: String? {
         didSet {
-            tableView.tableHeaderView = newTableHeaderView
+            headerView.text = headerText
+            updateHeaderFooterViews()
         }
     }
     
     /// The text to be displayed in the **UITableView**'s **tableFooter**, if any.
     @IBInspectable public var footerText: String? {
         didSet {
-            tableView.tableFooterView = newTableFooterView
+            footerView.text = footerText
+            updateHeaderFooterViews()
         }
     }
     
     /// The font size to be used for the **UITableView**'s **tableHeader**. Defaults to the size of **UIFontTextStyleSubheadline**
     @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.subheadline.rawValue) {
         didSet {
-            tableView.tableHeaderView = newTableHeaderView
+            headerView.fontSize = headerFontSize
+            updateHeaderFooterViews()
         }
     }
     
     /// The font size to be used for the **UITableView**'s **tableFooter**. Defaults to the size of **UIFontTextStyleSubheadline**
     @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.subheadline.rawValue) {
         didSet {
-            tableView.tableFooterView = newTableHeaderView
+            footerView.fontSize = footerFontSize
+            updateHeaderFooterViews()
         }
     }
     
@@ -93,6 +97,18 @@ public class AcknowledgementsTableViewController: UITableViewController {
         }
     }
     
+    private lazy var headerView: HeaderFooterView = {
+        let headerView = HeaderFooterView()
+        headerView.fontSize = self.headerFontSize
+        return headerView
+    }()
+    
+    private lazy var footerView: HeaderFooterView = {
+        let footerView = HeaderFooterView()
+        footerView.fontSize = self.footerFontSize
+        return footerView
+    }()
+    
     // MARK: Initialization
     
     public init(acknowledgementsPlistPath: String? = nil) {
@@ -110,9 +126,14 @@ public class AcknowledgementsTableViewController: UITableViewController {
     // MARK: UIViewController overrides
     
     override public func viewDidLoad() {
+        super.viewDidLoad()
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseId)
         
-        super.viewDidLoad()
+        headerView.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: 50)
+        tableView.tableHeaderView = headerView
+        footerView.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: 50)
+        tableView.tableFooterView = footerView
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -125,9 +146,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     
     override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        
-        tableView.tableHeaderView = tableView.tableHeaderView
-        tableView.tableFooterView = tableView.tableFooterView
+        updateHeaderFooterViews(forWidth: size.width)
     }
     
     // MARK: UITableViewDataSource
@@ -151,28 +170,28 @@ public class AcknowledgementsTableViewController: UITableViewController {
         show(detailViewController, sender: self)
     }
     
-    // MARK: TableView Header and Footer
+    // MARK: Private methods
     
-    private var newTableHeaderView: UIView? {
-        guard let headerText = headerText else {
-            return nil
-        }
-        
-        let headerView = HeaderFooterView()
-        headerView.label.text = headerText
-        headerView.fontSize = headerFontSize
-        return headerView
+    private func updateHeaderFooterViews() {
+        updateHeaderFooterViews(forWidth: view.bounds.width)
     }
     
-    private var newTableFooterView: UIView? {
-        guard let footerText = footerText else {
-            return nil
-        }
+    private func updateHeaderFooterViews(forWidth width: CGFloat) {
+        let headerWidthConstraint = NSLayoutConstraint(item: headerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
+        headerWidthConstraint.priority = 999
+        headerWidthConstraint.isActive = true
+        let headerHeight = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        headerWidthConstraint.isActive = false
+        headerView.frame = CGRect(x: 0, y: 0, width: width, height: headerHeight)
+        tableView.tableHeaderView = headerView
         
-        let footerView = HeaderFooterView()
-        footerView.label.text = footerText
-        footerView.fontSize = footerFontSize
-        return footerView
+        let footerWidthConstraint = NSLayoutConstraint(item: footerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
+        footerWidthConstraint.priority = 999
+        footerWidthConstraint.isActive = true
+        let footerHeight = footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        footerWidthConstraint.isActive = false
+        footerView.frame = CGRect(x: 0, y: 0, width: width, height: footerHeight)
+        tableView.tableFooterView = footerView
     }
 
 }
@@ -198,7 +217,16 @@ private class HeaderFooterView: UIView {
         }
     }
     
-    lazy var label: UILabel = {
+    var text: String? {
+        get {
+            return label.text
+        }
+        set {
+            label.text = newValue
+        }
+    }
+    
+    private lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -226,27 +254,6 @@ private class HeaderFooterView: UIView {
         self.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: label, attribute: .trailing, multiplier: 1, constant: 16))
         self.addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: label, attribute: .top, multiplier: 1, constant: -16))
         self.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1, constant: 16))
-    }
-    
-    // MARK: UIView overrides
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        resize()
-    }
-    
-    // MARK: Private
-    
-    private func resize() {
-        translatesAutoresizingMaskIntoConstraints = false
-        let widthConstraint = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: superview?.bounds.width ?? 500)
-        widthConstraint.isActive = true
-        let height = systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
-        removeConstraint(widthConstraint)
-        
-        translatesAutoresizingMaskIntoConstraints = true
-        
-        self.bounds = CGRect(x: 0, y: 0, width: self.bounds.width, height: height)
     }
     
 }
