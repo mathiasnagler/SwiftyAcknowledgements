@@ -75,6 +75,9 @@ libraries.forEach({ (library: String) in
     licenses.append(["title" : library, "text" : licence])
 })
 
+// Sort array by library name
+licenses.sort { $0["title"]! < $1["title"]! }
+
 // Generate plist from result array
 let plist = try! PropertyListSerialization.data(fromPropertyList: licenses, format: .xml, options: 0) as NSData
 
