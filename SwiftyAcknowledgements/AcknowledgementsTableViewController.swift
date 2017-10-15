@@ -60,7 +60,8 @@ public class AcknowledgementsTableViewController: UITableViewController {
             return [Acknowledgement]()
         }
 
-        return Acknowledgement.acknowledgements(fromPlistAt: acknowledgementsPlistPath)
+        let acknowledgements = Acknowledgement.acknowledgements(fromPlistAt: acknowledgementsPlistPath)
+        return self.sortingClosure != nil ? acknowledgements.sorted(by: self.sortingClosure!) : acknowledgements
     }()
     
     /// The acknowledgements that are displayed by the TableViewController. The array is initialized with the contents of the
