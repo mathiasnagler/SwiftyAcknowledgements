@@ -6,8 +6,8 @@ import Foundation
 
 extension String {
     func ends(with str: String) -> Bool {
-		let lc = self.lowercased()
-		let lcStr = str.lowercased()
+        let lc = self.lowercased()
+        let lcStr = str.lowercased()
         if let range = lc.range(of: lcStr, options: .backwards) {
             return range.upperBound == lc.endIndex
         }
