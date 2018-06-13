@@ -6,8 +6,10 @@ import Foundation
 
 extension String {
     func ends(with str: String) -> Bool {
-        if let range = self.range(of: str, options: .backwards) {
-            return range.upperBound == self.endIndex
+		let lc = self.lowercased()
+		let lcStr = str.lowercased()
+        if let range = lc.range(of: lcStr, options: .backwards) {
+            return range.upperBound == lc.endIndex
         }
         return false
     }
@@ -22,7 +24,7 @@ func locateLicense(inFolder folder: String) -> String? {
         return nil
     }
     
-    var filteredPaths = subpaths.filter { $0.ends(with: "LICENSE") || $0.ends(with: "LICENSE.txt") }
+	var filteredPaths = subpaths.filter { $0.ends(with: "LICENSE") || $0.ends(with: "LICENSE.txt") || $0.ends(with: "LICENSE.md") }
     filteredPaths = filteredPaths.map { folder + "/" + $0 }
     return filteredPaths.first
 }
