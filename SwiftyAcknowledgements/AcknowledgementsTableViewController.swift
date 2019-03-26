@@ -178,7 +178,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     
     private func updateHeaderFooterViews(forWidth width: CGFloat) {
         let headerWidthConstraint = NSLayoutConstraint(item: headerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
-        headerWidthConstraint.priority = 999
+        headerWidthConstraint.priority = UILayoutPriority(999)
         headerWidthConstraint.isActive = true
         let headerHeight = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
         headerWidthConstraint.isActive = false
@@ -186,7 +186,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
         tableView.tableHeaderView = headerView
         
         let footerWidthConstraint = NSLayoutConstraint(item: footerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
-        footerWidthConstraint.priority = 999
+        footerWidthConstraint.priority = UILayoutPriority(999)
         footerWidthConstraint.isActive = true
         let footerHeight = footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
         footerWidthConstraint.isActive = false
