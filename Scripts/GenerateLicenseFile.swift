@@ -22,7 +22,12 @@ func locateLicense(inFolder folder: String) -> String? {
         return nil
     }
     
-    var filteredPaths = subpaths.filter { $0.ends(with: "LICENSE") || $0.ends(with: "LICENSE.txt") }
+    var filteredPaths = subpaths.filter { 
+	$0.uppercased().ends(with: "LICENSE") 
+	|| $0.uppercased().ends(with: "LICENSE.TXT") 
+	|| $0 .uppercased().ends(with: "LICENSE.MD")
+    }
+    
     filteredPaths = filteredPaths.map { folder + "/" + $0 }
     return filteredPaths.first
 }

@@ -13,9 +13,9 @@ internal class AcknowledgementViewController: UIViewController {
     // MARK: Properties
     
     /// The font size used for displaying the acknowledgement's text
-    internal var fontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.body.rawValue) {
+    internal var fontSize: CGFloat = UIFontDescriptor.preferredFontSize(for: .body) {
         didSet {
-            textView.font = UIFont.systemFont(ofSize: fontSize)
+            textView.font = .systemFont(ofSize: fontSize)
         }
     }
     
@@ -27,8 +27,8 @@ internal class AcknowledgementViewController: UIViewController {
         let textView = UITextView(frame: CGRect.zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.alwaysBounceVertical     = true
-        textView.font                     = UIFont.systemFont(ofSize: self.fontSize)
-        textView.textContainerInset       = UIEdgeInsetsMake(12, 10, 12, 10)
+        textView.font                     = .systemFont(ofSize: self.fontSize)
+        textView.textContainerInset       = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10)
         textView.isUserInteractionEnabled = true
         
         #if os(iOS)
@@ -38,7 +38,7 @@ internal class AcknowledgementViewController: UIViewController {
 
         #if os(tvOS)
             textView.isSelectable = true
-            textView.panGestureRecognizer.allowedTouchTypes = [NSNumber(value: UITouchType.indirect.rawValue)]
+            textView.panGestureRecognizer.allowedTouchTypes = [NSNumber(value: UITouch.TouchType.indirect.rawValue)]
         #endif
         
         return textView
