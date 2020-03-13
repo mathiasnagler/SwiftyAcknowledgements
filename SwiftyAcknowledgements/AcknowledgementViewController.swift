@@ -13,7 +13,7 @@ internal class AcknowledgementViewController: UIViewController {
     // MARK: Properties
     
     /// The font size used for displaying the acknowledgement's text
-    internal var fontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.body.rawValue) {
+    internal var fontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFont.TextStyle.body.rawValue) {
         didSet {
             textView.font = UIFont.systemFont(ofSize: fontSize)
         }
@@ -28,7 +28,7 @@ internal class AcknowledgementViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.alwaysBounceVertical     = true
         textView.font                     = UIFont.systemFont(ofSize: self.fontSize)
-        textView.textContainerInset       = UIEdgeInsetsMake(12, 10, 12, 10)
+        textView.textContainerInset       = UIEdgeInsets.init(top: 12, left: 10, bottom: 12, right: 10)
         textView.isUserInteractionEnabled = true
         
         #if os(iOS)

@@ -31,7 +31,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     }
     
     /// The font size to be used for the **UITableView**'s **tableHeader**. Defaults to the size of **UIFontTextStyleSubheadline**
-    @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.subheadline.rawValue) {
+    @IBInspectable public var headerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFont.TextStyle.subheadline.rawValue) {
         didSet {
             headerView.fontSize = headerFontSize
             updateHeaderFooterViews()
@@ -39,7 +39,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     }
     
     /// The font size to be used for the **UITableView**'s **tableFooter**. Defaults to the size of **UIFontTextStyleSubheadline**
-    @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.subheadline.rawValue) {
+    @IBInspectable public var footerFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFont.TextStyle.subheadline.rawValue) {
         didSet {
             footerView.fontSize = footerFontSize
             updateHeaderFooterViews()
@@ -47,7 +47,7 @@ public class AcknowledgementsTableViewController: UITableViewController {
     }
     
     /// The font size to be used for the **UITableView**'s cells. Defaults to the size of **UIFontTextStyleBody**
-    @IBInspectable public var detailFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFontTextStyle.body.rawValue)
+    @IBInspectable public var detailFontSize: CGFloat = UIFontDescriptor.preferredFontSize(withTextStyle: UIFont.TextStyle.body.rawValue)
 
     /// The name of the plist containing the acknowledgements, defaults to **Acknowledgements**.
     @IBInspectable public var acknowledgementsPlistName = "Acknowledgements"
@@ -178,17 +178,17 @@ public class AcknowledgementsTableViewController: UITableViewController {
     
     private func updateHeaderFooterViews(forWidth width: CGFloat) {
         let headerWidthConstraint = NSLayoutConstraint(item: headerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
-        headerWidthConstraint.priority = 999
+        headerWidthConstraint.priority = UILayoutPriority(999)
         headerWidthConstraint.isActive = true
-        let headerHeight = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let headerHeight = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         headerWidthConstraint.isActive = false
         headerView.frame = CGRect(x: 0, y: 0, width: width, height: headerHeight)
         tableView.tableHeaderView = headerView
         
         let footerWidthConstraint = NSLayoutConstraint(item: footerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width)
-        footerWidthConstraint.priority = 999
+        footerWidthConstraint.priority = UILayoutPriority(999)
         footerWidthConstraint.isActive = true
-        let footerHeight = footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let footerHeight = footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         footerWidthConstraint.isActive = false
         footerView.frame = CGRect(x: 0, y: 0, width: width, height: footerHeight)
         tableView.tableFooterView = footerView
