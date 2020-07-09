@@ -12,8 +12,8 @@ internal extension UIFontDescriptor {
     
     /// Returns the point-size of the preffered font for a text style
     /// The user can influence this value by changing the font-size setting
-    internal class func preferredFontSize(withTextStyle style: String) -> CGFloat {
-        let style = self.preferredFontDescriptor(withTextStyle: UIFontTextStyle(rawValue: style))
+    class func preferredFontSize(withTextStyle style: String) -> CGFloat {
+        let style = self.preferredFontDescriptor(withTextStyle: UIFont.TextStyle(rawValue: style))
         return style.pointSize
     }
 
