@@ -214,6 +214,7 @@
 		5270469E1BE206D5004CD4FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */,
 				52FC377C1B9F6A0A005EFE87 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -268,6 +269,7 @@
 		52FC376D1B9F6A0A005EFE87 = {
 			isa = PBXGroup;
 			children = (
+				5270469E1BE206D5004CD4FC /* Supporting Files */,
 				52FC37791B9F6A0A005EFE87 /* SwiftyAcknowledgements */,
 				5270467C1BE203CB004CD4FC /* Tests */,
 				52FC378E1B9F6BEF005EFE87 /* iOS Example */,
@@ -296,10 +298,9 @@
 				52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */,
 				52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */,
 				527046711BE0EE86004CD4FC /* UIFontDescriptorExtensions.swift */,
-				52FC377A1B9F6A0A005EFE87 /* SwiftyAcknowledgements.h */,
-				5270469E1BE206D5004CD4FC /* Supporting Files */,
 			);
-			path = SwiftyAcknowledgements;
+			name = SwiftyAcknowledgements;
+			path = Sources/SwiftyAcknowledgements;
 			sourceTree = "<group>";
 		};
 		52FC378E1B9F6BEF005EFE87 /* iOS Example */ = {
