@@ -13,13 +13,22 @@ import SwiftyAcknowledgements
 class BaseTestCase: XCTestCase {
     
     func URLForResource(_ fileName: String, withExtension: String) -> URL {
+        #if XCODE
         let bundle = Bundle(for: BaseTestCase.self)
-        return bundle.url(forResource: fileName, withExtension: withExtension)!
+        #else
+        let bundle = Bundle.module
+        #endif
+        return bundle.url(forResource: fileName, withExtension: withExtension, subdirectory: "TestResources")!
     }
     
     func StringForResource(_ fileName: String, ofType: String) -> String {
+		#if XCODE
         let bundle = Bundle(for: BaseTestCase.self)
-        return bundle.path(forResource: fileName, ofType: ofType)!
+		print("Xcdoe")
+        #else
+        let bundle = Bundle.module
+        #endif
+        return bundle.path(forResource: fileName, ofType: ofType, inDirectory: "TestResources")!
     }
     
 }
