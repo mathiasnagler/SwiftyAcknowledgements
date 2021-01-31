@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33D1BC0225C696BE00B3D1D4 /* Acknowledgements.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 33D1BBDD25C6956800B3D1D4 /* Acknowledgements.plist */; };
-		33D1BC1025C696CD00B3D1D4 /* Acknowledgements.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 33D1BBDD25C6956800B3D1D4 /* Acknowledgements.plist */; };
+		33D1BC3125C698E100B3D1D4 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33D1BBDD25C6956800B3D1D4 /* Acknowledgements.plist */; };
+		33D1BC3225C698E200B3D1D4 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33D1BBDD25C6956800B3D1D4 /* Acknowledgements.plist */; };
 		524F34CE1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */; };
 		524F34CF1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34CD1BE248EE00784625 /* AcknowledgementsTableViewControllerTests.swift */; };
 		524F34D11BE2491800784625 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F34D01BE2491800784625 /* BaseTestCase.swift */; };
@@ -76,23 +76,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		33D1BC0125C696AF00B3D1D4 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				33D1BC0225C696BE00B3D1D4 /* Acknowledgements.plist in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		33D1BC0F25C696C700B3D1D4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				33D1BC1025C696CD00B3D1D4 /* Acknowledgements.plist in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +132,7 @@
 		52FC377C1B9F6A0A005EFE87 /* FrameworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FrameworkInfo.plist; sourceTree = "<group>"; };
 		52FC37831B9F6A94005EFE87 /* Acknowledgement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acknowledgement.swift; sourceTree = "<group>"; };
 		52FC37841B9F6A94005EFE87 /* AcknowledgementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsTableViewController.swift; sourceTree = "<group>"; };
-		52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		52FC37851B9F6A94005EFE87 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		52FC378D1B9F6BEF005EFE87 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC378F1B9F6BEF005EFE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52FC37911B9F6BEF005EFE87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -381,7 +370,6 @@
 				527046961BE2056D004CD4FC /* Generate Acknowledgements */,
 				527046871BE204A1004CD4FC /* Frameworks */,
 				527046881BE204A1004CD4FC /* Resources */,
-				33D1BC0125C696AF00B3D1D4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -533,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D1BC3125C698E100B3D1D4 /* Acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +529,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D1BC3225C698E200B3D1D4 /* Acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
