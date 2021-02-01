@@ -611,7 +611,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Scripts/GenerateLicenseFile.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/Examples/iOS\\ Example/Resources/Acknowledgements.plist";
+			shellScript = "${SRCROOT}/Sources/GenerateLicenseFile/main.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/Examples/iOS\\ Example/Resources/Acknowledgements.plist\n";
 		};
 		52AAE6481BDFAAE1007EB44A /* Generate Acknowledgements */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -625,7 +625,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Scripts/GenerateLicenseFile.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/Examples/tvOS\\ Example/Resources/Acknowledgements.plist";
+			shellScript = "${SRCROOT}/Sources/GenerateLicenseFile/main.swift ${SRCROOT}/Libraries/ ${PROJECT_DIR}/Examples/iOS\\ Example/Resources/Acknowledgements.plist\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
