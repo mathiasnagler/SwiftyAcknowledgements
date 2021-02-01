@@ -19,17 +19,17 @@ extension String {
 let fm = FileManager.default
 
 func locateLicense(inFolder folder: URL) -> URL? {
-    guard let subpaths = try? fm.contentsOfDirectory(at: folder, includingPropertiesForKeys: nil, options: []) else { return nil }
-//    guard let subpaths = try? fm.subpathsOfDirectory(atPath: folder) else {
-//        return nil
-//    }
+    var isDir: ObjCBool = false
+    fm.fileExists(atPath: folder.path, isDirectory: &isDir)
+    guard
+        isDir.boolValue == true,
+        let subpaths = try? fm.contentsOfDirectory(at: folder, includingPropertiesForKeys: nil, options: [])
+    else { return nil }
 
     let licenseFiles = subpaths.filter {
         $0.lastPathComponent.lowercased().range(of: "license", options: .regularExpression, range: nil, locale: nil) != nil
     }
-    
-//    var filteredPaths = subpaths.filter { $0.ends(with: "LICENSE") || $0.ends(with: "LICENSE.txt") || $0.ends(with: "LICENSE.md") }
-//    filteredPaths = filteredPaths.map { folder + "/" + $0 }
+
     return licenseFiles.first
 }
 
@@ -65,13 +65,10 @@ func main() {
     let (inputDirs, outputFile) = getArguments()
 
     // Get subpaths (libraries at path)
-    guard let libraries = try? fm.contentsOfDirectory(at: inputDirs.first!, includingPropertiesForKeys: nil, options: []) else {
-        fatalError("Could not access directory at path \(inputDirs.first!).")
+    let libraries = inputDirs.compactMap {
+        try? fm.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])
     }
-//    guard let libraries = try? filemanager.contentsOfDirectory(atPath: inDict), libraries.count > 0 else {
-//        print("Could not access directory at path \(inDict).")
-//        exit(1)
-//    }
+    .flatMap { $0 }
 
     // Result array
     var licenses = Array<Dictionary<String, String>>()
