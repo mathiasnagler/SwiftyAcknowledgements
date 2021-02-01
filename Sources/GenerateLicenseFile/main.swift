@@ -15,6 +15,24 @@ extension String {
     }
 }
 
+extension IteratorProtocol {
+    func forEach(_ body: (Element) -> ()) {
+        var copy = self
+        while let current = copy.next() {
+            body(current)
+        }
+    }
+
+    func map<Output>(_ body: (Element) -> Output) -> [Output] {
+        var copy = self
+        var result = [Output]()
+        while let current = copy.next() {
+            result.append(body(current))
+        }
+        return result
+    }
+}
+
 // MARK: Internal functions
 let fm = FileManager.default
 
@@ -23,12 +41,15 @@ func locateLicense(inFolder folder: URL) -> URL? {
     fm.fileExists(atPath: folder.path, isDirectory: &isDir)
     guard
         isDir.boolValue == true,
-        let subpaths = try? fm.contentsOfDirectory(at: folder, includingPropertiesForKeys: nil, options: [])
+        let subpathEnumerator = fm.enumerator(at: folder, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])?.makeIterator()
     else { return nil }
 
-    let licenseFiles = subpaths.filter {
-        $0.lastPathComponent.lowercased().range(of: "license", options: .regularExpression, range: nil, locale: nil) != nil
-    }
+    let licenseFiles = subpathEnumerator
+        .map { $0 as? URL }
+        .compactMap { $0 }
+        .filter {
+            $0.lastPathComponent.lowercased().range(of: "license", options: .regularExpression, range: nil, locale: nil) != nil
+        }
 
     return licenseFiles.first
 }
