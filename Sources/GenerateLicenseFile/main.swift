@@ -91,23 +91,29 @@ func main() {
     }
     .flatMap { $0 }
 
-    // Result array
-    var licenses = Array<Dictionary<String, String>>()
-
     // Load license for each library and add it to the result array
-    libraries.forEach({ library in
+    let lics = libraries.reduce(into: [String: String]()) {
         guard
-            let licensePath = locateLicense(inProject: library),
+            let licensePath = locateLicense(inProject: $1),
             let license = try? String(contentsOf: licensePath, encoding: .utf8)
-        else {
-            return
+        else { return }
+
+        $0[$1.lastPathComponent] = license
+    }
+
+    let combinedLicenses: [[String: String]] = lics
+        .keys
+        .sorted()
+        .map {
+            let value = lics[$0, default: ""]
+            return [
+                "title": $0,
+                "text": value
+            ]
         }
 
-        licenses.append(["title" : library.lastPathComponent, "text" : license])
-    })
-
     // Generate plist from result array
-    let plist = try! PropertyListSerialization.data(fromPropertyList: licenses, format: .xml, options: 0) as NSData
+    let plist = try! PropertyListSerialization.data(fromPropertyList: combinedLicenses, format: .xml, options: 0) as NSData
 
     // Write plist to disk
     do {
