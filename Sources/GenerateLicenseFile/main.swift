@@ -36,12 +36,12 @@ extension IteratorProtocol {
 // MARK: Internal functions
 let fm = FileManager.default
 
-func locateLicense(inFolder folder: URL) -> URL? {
+func locateLicense(inProject projectFolder: URL) -> URL? {
     var isDir: ObjCBool = false
-    fm.fileExists(atPath: folder.path, isDirectory: &isDir)
+    fm.fileExists(atPath: projectFolder.path, isDirectory: &isDir)
     guard
         isDir.boolValue == true,
-        let subpathEnumerator = fm.enumerator(at: folder, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])?.makeIterator()
+        let subpathEnumerator = fm.enumerator(at: projectFolder, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])?.makeIterator()
     else { return nil }
 
     let licenseFiles = subpathEnumerator
@@ -97,8 +97,7 @@ func main() {
     // Load license for each library and add it to the result array
     libraries.forEach({ library in
         guard
-            let licensePath = locateLicense(inFolder: library),
-//            let licence = try? String(contentsOfFile: licensePath, encoding: .utf8)
+            let licensePath = locateLicense(inProject: library),
             let license = try? String(contentsOf: licensePath, encoding: .utf8)
         else {
             return
