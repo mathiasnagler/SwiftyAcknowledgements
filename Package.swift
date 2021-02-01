@@ -13,6 +13,9 @@ let package = Package(
         .library(
             name: "SwiftyAcknowledgements",
             targets: ["SwiftyAcknowledgements"]),
+		.executable(
+			name: "GenerateLicenseFile",
+			targets: ["GenerateLicenseFile"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -24,7 +27,10 @@ let package = Package(
         .target(
             name: "SwiftyAcknowledgements",
             dependencies: []),
-        .testTarget(
+		.target(
+			name: "GenerateLicenseFile",
+			dependencies: []),
+		.testTarget(
             name: "SwiftyAcknowledgementsTests",
             dependencies: ["SwiftyAcknowledgements"],
 			resources: [
