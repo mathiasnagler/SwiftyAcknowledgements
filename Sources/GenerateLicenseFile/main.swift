@@ -91,7 +91,7 @@ func main() {
     }
     .flatMap { $0 }
 
-    // Load license for each library and add it to the result array
+    // Load license for each library and add it to a dictionary, removing potential duplicates
     let lics = libraries.reduce(into: [String: String]()) {
         guard
             let licensePath = locateLicense(inProject: $1),
@@ -101,6 +101,7 @@ func main() {
         $0[$1.lastPathComponent] = license
     }
 
+    // Convert dictionary to expected data structuring, but alphabetized
     let combinedLicenses: [[String: String]] = lics
         .keys
         .sorted()
@@ -113,14 +114,12 @@ func main() {
         }
 
     // Generate plist from result array
-    let plist = try! PropertyListSerialization.data(fromPropertyList: combinedLicenses, format: .xml, options: 0) as NSData
-
     // Write plist to disk
     do {
+        let plist = try PropertyListSerialization.data(fromPropertyList: combinedLicenses, format: .xml, options: 0)
         try plist.write(to: outputFile)
     } catch {
-        print("Error saving plist to disk: \(error)")
-        exit(1)
+        fatalError("Error saving plist to disk: \(error)")
     }
 }
 
