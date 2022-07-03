@@ -56,7 +56,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/mredig/Developer/SwiftyAcknowledgements/License.plist"
+            argument = "-o /Users/mredig/Developer/SwiftyAcknowledgements/License.plist"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
