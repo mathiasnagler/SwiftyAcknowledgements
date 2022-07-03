@@ -1,7 +1,6 @@
 import Foundation
 import ArgumentParser
 
-
 @main
 struct GenerateLicenseFile: ParsableCommand {
 	private static let fm = FileManager.default
