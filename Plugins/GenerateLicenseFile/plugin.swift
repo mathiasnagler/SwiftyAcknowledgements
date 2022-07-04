@@ -10,6 +10,10 @@ struct GenerateLicenseFile: CommandPlugin {
 		NSLog("\(context.pluginWorkDirectory)")
 		NSLog("\(context.package.directory)")
 
+		for _ in 1...100 {
+			NSLog("poooooo")
+		}
+
 		var updatedArguments: [String] = []
 		var skip = false
 		for argument in arguments {
