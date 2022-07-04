@@ -7,6 +7,9 @@ struct GenerateLicenseFile: CommandPlugin {
 		let tool = try context.tool(named: "GenerateLicenseFileExe")
 		let toolUrl = URL(fileURLWithPath: tool.path.string)
 
+		NSLog("\(context.pluginWorkDirectory)")
+		NSLog("\(context.package.directory)")
+
 		var updatedArguments: [String] = []
 		var skip = false
 		for argument in arguments {
@@ -32,7 +35,7 @@ struct GenerateLicenseFile: CommandPlugin {
 
 		let process = Process()
 		process.executableURL = toolUrl
-		process.arguments = directories + ["-o", "Licenses.plist"]
+		process.arguments = directories + ["-o", "Acknowledgements.plist"]
 
 		try process.run()
 		process.waitUntilExit()
