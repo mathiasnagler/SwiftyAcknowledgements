@@ -6,7 +6,7 @@
 //  Copyright © 2015 Mathias Nagler. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 internal extension UIFontDescriptor {
     
