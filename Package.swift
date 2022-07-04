@@ -8,15 +8,16 @@ let package = Package(
 	platforms: [
 		.iOS(.v9),
 		.tvOS(.v9),
+		.macOS(.v12),
 	],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "SwiftyAcknowledgements",
             targets: ["SwiftyAcknowledgements"]),
-		.executable(
-			name: "GenerateLicenseFile",
-			targets: ["GenerateLicenseFile"]),
+		.library(
+			name: "LicenseFileGenerator",
+			targets: ["LicenseFileGenerator"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -29,9 +30,12 @@ let package = Package(
         .target(
             name: "SwiftyAcknowledgements",
             dependencies: []),
+		.target(
+			name: "LicenseFileGenerator"),
 		.executableTarget(
-			name: "GenerateLicenseFile",
+			name: "GenerateLicenseFileExe",
 			dependencies: [
+				"LicenseFileGenerator",
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 			]),
 		.testTarget(

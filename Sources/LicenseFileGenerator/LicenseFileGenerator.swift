@@ -1,29 +1,12 @@
 import Foundation
-import ArgumentParser
 
-@main
-struct GenerateLicenseFile: ParsableCommand {
+public struct LicenseFileGenerator {
 	private static let fm = FileManager.default
 	private var fm: FileManager { Self.fm }
 
-	@Argument(
-		help: "Source Directories",
-		completion: .directory,
-		transform: URL.init(fileURLWithPath:))
-	var sourceDirectories: [URL]
+	public init() {}
 
-	@Option(
-		name: .customShort("o"),
-		help: "Destination File",
-		completion: .file(),
-		transform: URL.init(fileURLWithPath:))
-	var destinationFile: URL
-
-
-	func run() throws {
-		let inputDirs = sourceDirectories
-		let outputFile = destinationFile
-
+	public func generatePlist(inputDirs: [URL], outputFile: URL) throws {
 		// Get subpaths (libraries at paths)
 		let libraryPaths = getAllLibraryPaths(from: inputDirs)
 
@@ -35,12 +18,12 @@ struct GenerateLicenseFile: ParsableCommand {
 
 		// Generate plist from result array
 		// Write plist to disk
-		do {
+//		do {
 			let plist = try PropertyListSerialization.data(fromPropertyList: exportDictionary, format: .xml, options: 0)
 			try plist.write(to: outputFile)
-		} catch {
-			fatalError("Error saving plist to disk: \(error)")
-		}
+//		} catch {
+//			fatalError("Error saving plist to disk: \(error)")
+//		}
 		print("Saved license info to \(outputFile.path)")
 	}
 
@@ -96,17 +79,6 @@ struct GenerateLicenseFile: ParsableCommand {
 }
 
 // MARK: Convenience Extensions
-extension String {
-	func ends(with str: String) -> Bool {
-		let lc = self.lowercased()
-		let lcStr = str.lowercased()
-		if let range = lc.range(of: lcStr, options: .backwards) {
-			return range.upperBound == lc.endIndex
-		}
-		return false
-	}
-}
-
 extension IteratorProtocol {
 	func map<Output>(_ body: (Element) -> Output) -> [Output] {
 		var copy = self
