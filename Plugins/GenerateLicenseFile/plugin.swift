@@ -1,18 +1,15 @@
 import Foundation
 import PackagePlugin
 
+
+/**
+ Right now this only works on SPM projects and not in Xcode projects. No idea if that will be fixed later as it plain just doesn't run in Xcode projects.
+ */
 @main
 struct GenerateLicenseFile: CommandPlugin {
 	func performCommand(context: PluginContext, arguments: [String]) async throws {
 		let tool = try context.tool(named: "GenerateLicenseFileExe")
 		let toolUrl = URL(fileURLWithPath: tool.path.string)
-
-		NSLog("\(context.pluginWorkDirectory)")
-		NSLog("\(context.package.directory)")
-
-		for _ in 1...100 {
-			NSLog("poooooo")
-		}
 
 		var updatedArguments: [String] = []
 		var skip = false
