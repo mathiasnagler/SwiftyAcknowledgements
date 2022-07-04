@@ -21,6 +21,9 @@ let package = Package(
 		.executable(
 			name: "GenerateLicenseFileExe",
 			targets: ["GenerateLicenseFileExe"]),
+		.plugin(
+			name: "GenerateLicenseFile",
+			targets: ["GenerateLicenseFile"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
