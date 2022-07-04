@@ -12,12 +12,15 @@ let package = Package(
 	],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "SwiftyAcknowledgements",
-            targets: ["SwiftyAcknowledgements"]),
+		.library(
+			name: "SwiftyAcknowledgements",
+			targets: ["SwiftyAcknowledgements"]),
 		.library(
 			name: "LicenseFileGenerator",
 			targets: ["LicenseFileGenerator"]),
+		.executable(
+			name: "GenerateLicenseFileExe",
+			targets: ["GenerateLicenseFileExe"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -37,6 +40,18 @@ let package = Package(
 			dependencies: [
 				"LicenseFileGenerator",
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
+			]),
+		.plugin(
+			name: "GenerateLicenseFile",
+			capability: .command(
+				intent: .custom(
+					verb: "generate-license-file",
+					description: "Generates the licenses plist file"),
+				permissions: [
+					.writeToPackageDirectory(reason: "Writes licenses plist file")
+				]),
+			dependencies: [
+				"GenerateLicenseFileExe",
 			]),
 		.testTarget(
             name: "SwiftyAcknowledgementsTests",

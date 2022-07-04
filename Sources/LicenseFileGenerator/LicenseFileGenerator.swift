@@ -40,7 +40,10 @@ public struct LicenseFileGenerator {
 			.map { $0 as? URL }
 			.compactMap { $0 }
 			.filter {
-				$0.lastPathComponent.lowercased().range(of: "license", options: .regularExpression, range: nil, locale: nil) != nil
+				guard $0.lastPathComponent.lowercased().contains("license") else { return false }
+				var licenseIsDir: ObjCBool = false
+				fm.fileExists(atPath: $0.path, isDirectory: &licenseIsDir)
+				return !licenseIsDir.boolValue
 			}
 
 		return licenseFiles.first
@@ -48,7 +51,13 @@ public struct LicenseFileGenerator {
 
 	func getAllLibraryPaths(from inputDirs: [URL]) -> [URL] {
 		inputDirs.compactMap {
-			try? fm.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])
+			try? fm
+				.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
+				.filter {
+					var isDir: ObjCBool = false
+					fm.fileExists(atPath: $0.path, isDirectory: &isDir)
+					return isDir.boolValue
+				}
 		}
 		.flatMap { $0 }
 	}
